@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inkoma — Zeichnen und animieren</title>
+<meta name="description" content="Inkoma, iPad-App zum Zeichnen und Animieren. Datenschutzrichtlinie, Impressum, Support. Keine Daten erfasst.">
+<meta name="author" content="Jérôme Houix">
+<link rel="icon" href="../inkoma.png">
+<link rel="canonical" href="https://jeromehouix.github.io/inkoma-site/de/">
+<link rel="alternate" hreflang="fr" href="https://jeromehouix.github.io/inkoma-site/">
+<link rel="alternate" hreflang="en" href="https://jeromehouix.github.io/inkoma-site/en/">
+<link rel="alternate" hreflang="es" href="https://jeromehouix.github.io/inkoma-site/es/">
+<link rel="alternate" hreflang="de" href="https://jeromehouix.github.io/inkoma-site/de/">
+<link rel="alternate" hreflang="it" href="https://jeromehouix.github.io/inkoma-site/it/">
+<link rel="alternate" hreflang="pt-BR" href="https://jeromehouix.github.io/inkoma-site/pt-BR/">
+<link rel="alternate" hreflang="nl" href="https://jeromehouix.github.io/inkoma-site/nl/">
+<link rel="alternate" hreflang="ja" href="https://jeromehouix.github.io/inkoma-site/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jeromehouix.github.io/inkoma-site/zh-Hans/">
+<link rel="alternate" hreflang="ko" href="https://jeromehouix.github.io/inkoma-site/ko/">
+<meta property="og:title" content="Inkoma">
+<meta property="og:description" content="Zeichnen und animieren, auf dem iPad. Keine Daten erfasst.">
+<meta property="og:image" content="../inkoma.png">
+<meta property="og:type" content="website">
+<!-- Page générée par Scripts/site.py (dépôt de l'app) : la modifier là. -->
+<style>
+  /* Le fond de l'accueil d'Inkoma ; polices du système (aucune requête externe). */
+  :root{
+    --paper:#F2F0EB; --paper-deep:#E8E5DE; --ink:#282726; --ink-soft:#5C5853;
+    --line:rgba(40,39,38,.14); --wash:rgba(40,39,38,.04);
+    --accent:#2E4A62;
+    --serif:ui-serif,"New York","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  /* Le coréen ne se coupe qu'entre les mots. */
+  :lang(ko){word-break:keep-all}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px}
+  a{color:var(--accent); text-underline-offset:2px}
+
+  header{padding:64px 0 40px; text-align:center}
+  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
+  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
+  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+
+  nav{
+    position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav ul{list-style:none; margin:0 auto; padding:10px 20px; max-width:760px;
+    display:flex; flex-wrap:wrap; gap:4px 18px; justify-content:center; font-size:.92rem}
+  nav a{color:var(--ink-soft); text-decoration:none}
+  nav a:hover{color:var(--ink)}
+
+  section{padding:44px 0 12px; border-bottom:1px solid var(--line); scroll-margin-top:52px}
+  section:last-of-type{border-bottom:0}
+  h2{font-family:var(--serif); font-weight:600; font-size:1.7rem; margin:0 0 4px}
+  .date{color:var(--ink-soft); font-size:.88rem; margin:0 0 22px}
+  h3{font-size:1.02rem; margin:26px 0 6px}
+  p,li{color:var(--ink)}
+  p{margin:0 0 14px}
+  ul.plain{margin:0 0 14px; padding-left:20px}
+  ul.plain li{margin-bottom:6px}
+
+  .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
+  .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
+  .point b{display:block; margin-bottom:4px}
+  .point span{color:var(--ink-soft); font-size:.93rem}
+
+  dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
+  dl.facts dt,dl.facts dd{margin:0; padding:12px 0; border-bottom:1px solid var(--line)}
+  dl.facts dt{color:var(--ink-soft); font-size:.9rem; padding-right:16px}
+  @media (max-width:560px){
+    dl.facts{grid-template-columns:1fr}
+    dl.facts dt{border-bottom:0; padding-bottom:0}
+    dl.facts dd{padding-top:2px}
+  }
+
+  footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
+  footer p{margin:0 0 4px; color:var(--ink-soft)}
+  footer .langs{margin-top:14px; line-height:1.9}
+  footer .langs a{color:var(--ink-soft)}
+  footer .langs a[aria-current]{color:var(--ink); font-weight:600; text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <img src="../inkoma.png" alt="">
+  <h1>Inkoma</h1>
+  <p>Zeichnen und animieren, auf dem iPad</p>
+</header>
+
+<nav aria-label="Sections">
+  <ul>
+    <li><a href="#confidentialite">Datenschutz</a></li>
+    <li><a href="#oeuvres">Deine Werke</a></li>
+    <li><a href="#conditions">Nutzungsbedingungen</a></li>
+    <li><a href="#mentions">Impressum</a></li>
+    <li><a href="#assistance">Support</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="confidentialite">
+    <h2>Datenschutzrichtlinie</h2>
+    <p class="date">Aktualisiert: 26. Oktober 2026</p>
+
+    <div class="points">
+      <div class="point"><b>Keine Daten erfasst</b><span>Kein Konto, keine Werbung, keine Reichweitenmessung, keine Tracker. Inkoma verbindet sich mit keinem Server.</span></div>
+      <div class="point"><b>Alles bleibt auf diesem Gerät</b><span>Deine Werke, Skizzenbücher und Pinsel werden auf dem iPad gespeichert und verlassen es nur, wenn du sie teilst.</span></div>
+      <div class="point"><b>Berechtigungen</b><span>Jede wird erst angefragt, wenn eine Funktion sie braucht; du kannst sie ablehnen oder später in den Einstellungen widerrufen.</span></div>
+    </div>
+
+    <h3>Kurz gesagt</h3>
+    <p>Inkoma erfasst keine personenbezogenen Daten. Die App hat kein Konto, enthält weder Werbung noch Reichweitenmessung noch Tracker und verbindet sich mit keinem Server. Was du zeichnest, bleibt auf deinem Gerät.</p>
+
+    <h3>Was auf dem Gerät gespeichert wird</h3>
+    <ul class="plain">
+      <li>Deine Werke: ihre Ebenen, die Bilder ihrer Animation, ihr Format, ihr Name, eine Miniatur sowie die Fotos, Videos oder Töne, die du darin platzierst.</li>
+      <li>Deine Skizzenbücher: ihr Name, ihr Einband, die Reihenfolge der Seiten und was du von Hand hineinschreibst.</li>
+      <li>Deine Pinsel und die Einstellungen der App.</li>
+      <li>Ein technisches Protokoll der Öffnungen und Speicherungen von Werken, um ein Problem zu verstehen; es verlässt das Gerät nicht.</li>
+    </ul>
+    <p>Diese Dateien bleiben im Bereich der App (sichtbar in Dateien). Sie folgen der Gerätesicherung (iCloud oder Computer) je nach deinen iOS-Einstellungen, die von Apple verwaltet wird. Der Herausgeber hat nie Zugriff darauf.</p>
+
+    <h3>Berechtigungen</h3>
+    <p>Inkoma fragt eine Berechtigung erst an, wenn eine Funktion sie braucht; du kannst sie ablehnen oder jederzeit in den Einstellungen widerrufen.</p>
+    <ul class="plain">
+      <li>Kamera: Fotos für Stop-Motion aufnehmen und darüber zeichnen.</li>
+      <li>Mikrofon: einen Ton für eine Animation aufnehmen, etwa eine Stimme oder ein Geräusch.</li>
+      <li>Fotos: das Foto oder Video deiner Wahl importieren und die exportierten Bilder, GIFs und Videos in Fotos sichern. Inkoma liest nur, was du auswählst.</li>
+      <li>Dateien: keine Berechtigung; Inkoma öffnet nur die Dateien, die du auswählst.</li>
+    </ul>
+    <p>Was du so aufnimmst oder importierst, bleibt auf dem Gerät, in dem Werk, in das du es setzt; nichts wird gesendet. Inkoma verwendet deinen Standort nicht. Neigung, Ausrichtung und Druck des Stifts, sofern er sie liefert, dienen nur dazu, den Strich zu zeichnen.</p>
+
+    <h3>Teilen</h3>
+    <p>Ein Bild, ein GIF oder ein Video verlässt die App nur, wenn du es selbst teilst (Teilen-Menü von iOS), an das Ziel deiner Wahl. Inkoma sendet nichts von sich aus.</p>
+
+    <h3>Kinder</h3>
+    <p>Inkoma erfasst keine Daten, auch nicht die von Kindern; die App wird ohne Konto genutzt, im Unterricht wie überall sonst.</p>
+
+    <h3>Deine Rechte</h3>
+    <p>Da keine Daten erfasst werden, besitzt der Herausgeber nichts über dich. Du behältst die Kontrolle über deine Werke: Lösche sie auf dem Startbildschirm (sie bleiben 30 Tage in „Zuletzt gelöscht“ und werden dann entfernt), oder alle, indem du die App löschst.</p>
+
+    <h3>Kontakt</h3>
+    <p>Bei Fragen zu dieser Richtlinie schreibe dem Herausgeber über die <a href="#assistance">Support-Seite</a>.</p>
+
+    <h3>Änderungen</h3>
+    <p>Ändert sich diese Richtlinie, wird die neue Fassung mit Datum in der App und auf dieser Seite veröffentlicht.</p>
+
+    <h3>Diese Seite</h3>
+    <p>Diese Seite wird von GitHub Pages bereitgestellt. Sie setzt keine Cookies und lädt keine externen Ressourcen; GitHub kann technische Verbindungsprotokolle gemäß seiner eigenen Datenschutzrichtlinie führen.</p>
+  </section>
+
+  <section id="oeuvres">
+    <h2>Deine Werke</h2>
+    <h3>In Dateien</h3>
+    <p>Die Werke liegen in Dateien, Auf meinem iPad › Inkoma › Oeuvres.</p>
+    <h3>Sicherung</h3>
+    <p>Sie folgen der Gerätesicherung (iCloud oder Computer), je nach deinen iOS-Einstellungen.</p>
+    <h3>Löschen</h3>
+    <p>Ein gelöschtes Werk bleibt 30 Tage in „Zuletzt gelöscht“, wo du es wiederherstellen kannst; das Löschen der App entfernt alle Werke.</p>
+    <h3>Deine Werke gehören dir</h3>
+    <p>Was du mit Inkoma zeichnest und animierst, gehört dir; die App beansprucht keine Rechte an deinen Bildern.</p>
+  </section>
+
+  <section id="conditions">
+    <h2>Nutzungsbedingungen</h2>
+    <p>Inkoma wird über den App Store gemäß dem <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard-Lizenzvertrag von Apple für lizenzierte Apps</a> vertrieben; die App fügt keine eigenen Bedingungen hinzu.</p>
+  </section>
+
+  <section id="mentions">
+    <h2>Impressum</h2>
+    <dl class="facts">
+      <dt>App</dt><dd>Inkoma, für iPad</dd>
+      <dt>Herausgeber</dt><dd>Jérôme Houix</dd>
+      <dt>Verantwortlich für den Inhalt</dt><dd>Jérôme Houix</dd>
+      <dt>Kontakt</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">Support-Seite</a></dd>
+      <dt>Hosting der App</dt><dd>Keines: Inkoma läuft vollständig auf dem Gerät, ohne Server. Die App wird über den App Store von Apple vertrieben.</dd>
+      <dt>Hosting dieser Seite</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA</dd>
+      <dt>Geistiges Eigentum</dt><dd>Die App, ihr Name und ihr Symbol gehören dem Herausgeber. Die mit Inkoma geschaffenen Werke gehören ihren Urhebern.</dd>
+    </dl>
+    <p>Inkoma enthält keine Bibliothek von Drittanbietern.</p>
+  </section>
+
+  <section id="assistance">
+    <h2>Support</h2>
+    <p>Eine Frage, ein Problem, ein Anliegen zum Datenschutz: Eröffne eine Meldung auf <a href="https://github.com/jeromehouix/inkoma-site/issues">der Supportseite</a>. Jede Anfrage wird beantwortet.</p>
+    <p>Meldungen sind dort öffentlich: Füge keine persönlichen Informationen hinzu.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>© 2026 Jérôme Houix — Inkoma</p>
+  <p class="langs" aria-label="Sprachen"><a href="../" lang="fr">Français</a> · <a href="../en/" lang="en">English</a> · <a href="../es/" lang="es">Español</a> · <a href="../de/" lang="de" aria-current="page">Deutsch</a> · <a href="../it/" lang="it">Italiano</a> · <a href="../pt-BR/" lang="pt-BR">Português (Brasil)</a> · <a href="../nl/" lang="nl">Nederlands</a> · <a href="../ja/" lang="ja">日本語</a> · <a href="../zh-Hans/" lang="zh-Hans">简体中文</a> · <a href="../ko/" lang="ko">한국어</a></p>
+</footer>
+
+</body>
+</html>

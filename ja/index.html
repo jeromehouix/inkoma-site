@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inkoma — 描いて、動かす</title>
+<meta name="description" content="Inkoma — iPadで描いて動かすアプリ。プライバシーポリシー、法的表示、サポート。データを収集しません。">
+<meta name="author" content="Jérôme Houix">
+<link rel="icon" href="../inkoma.png">
+<link rel="canonical" href="https://jeromehouix.github.io/inkoma-site/ja/">
+<link rel="alternate" hreflang="fr" href="https://jeromehouix.github.io/inkoma-site/">
+<link rel="alternate" hreflang="en" href="https://jeromehouix.github.io/inkoma-site/en/">
+<link rel="alternate" hreflang="es" href="https://jeromehouix.github.io/inkoma-site/es/">
+<link rel="alternate" hreflang="de" href="https://jeromehouix.github.io/inkoma-site/de/">
+<link rel="alternate" hreflang="it" href="https://jeromehouix.github.io/inkoma-site/it/">
+<link rel="alternate" hreflang="pt-BR" href="https://jeromehouix.github.io/inkoma-site/pt-BR/">
+<link rel="alternate" hreflang="nl" href="https://jeromehouix.github.io/inkoma-site/nl/">
+<link rel="alternate" hreflang="ja" href="https://jeromehouix.github.io/inkoma-site/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jeromehouix.github.io/inkoma-site/zh-Hans/">
+<link rel="alternate" hreflang="ko" href="https://jeromehouix.github.io/inkoma-site/ko/">
+<meta property="og:title" content="Inkoma">
+<meta property="og:description" content="iPadで、描いて動かす。データを収集しません。">
+<meta property="og:image" content="../inkoma.png">
+<meta property="og:type" content="website">
+<!-- Page générée par Scripts/site.py (dépôt de l'app) : la modifier là. -->
+<style>
+  /* Le fond de l'accueil d'Inkoma ; polices du système (aucune requête externe). */
+  :root{
+    --paper:#F2F0EB; --paper-deep:#E8E5DE; --ink:#282726; --ink-soft:#5C5853;
+    --line:rgba(40,39,38,.14); --wash:rgba(40,39,38,.04);
+    --accent:#2E4A62;
+    --serif:ui-serif,"New York","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  /* Le coréen ne se coupe qu'entre les mots. */
+  :lang(ko){word-break:keep-all}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px}
+  a{color:var(--accent); text-underline-offset:2px}
+
+  header{padding:64px 0 40px; text-align:center}
+  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
+  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
+  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+
+  nav{
+    position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav ul{list-style:none; margin:0 auto; padding:10px 20px; max-width:760px;
+    display:flex; flex-wrap:wrap; gap:4px 18px; justify-content:center; font-size:.92rem}
+  nav a{color:var(--ink-soft); text-decoration:none}
+  nav a:hover{color:var(--ink)}
+
+  section{padding:44px 0 12px; border-bottom:1px solid var(--line); scroll-margin-top:52px}
+  section:last-of-type{border-bottom:0}
+  h2{font-family:var(--serif); font-weight:600; font-size:1.7rem; margin:0 0 4px}
+  .date{color:var(--ink-soft); font-size:.88rem; margin:0 0 22px}
+  h3{font-size:1.02rem; margin:26px 0 6px}
+  p,li{color:var(--ink)}
+  p{margin:0 0 14px}
+  ul.plain{margin:0 0 14px; padding-left:20px}
+  ul.plain li{margin-bottom:6px}
+
+  .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
+  .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
+  .point b{display:block; margin-bottom:4px}
+  .point span{color:var(--ink-soft); font-size:.93rem}
+
+  dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
+  dl.facts dt,dl.facts dd{margin:0; padding:12px 0; border-bottom:1px solid var(--line)}
+  dl.facts dt{color:var(--ink-soft); font-size:.9rem; padding-right:16px}
+  @media (max-width:560px){
+    dl.facts{grid-template-columns:1fr}
+    dl.facts dt{border-bottom:0; padding-bottom:0}
+    dl.facts dd{padding-top:2px}
+  }
+
+  footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
+  footer p{margin:0 0 4px; color:var(--ink-soft)}
+  footer .langs{margin-top:14px; line-height:1.9}
+  footer .langs a{color:var(--ink-soft)}
+  footer .langs a[aria-current]{color:var(--ink); font-weight:600; text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <img src="../inkoma.png" alt="">
+  <h1>Inkoma</h1>
+  <p>iPadで、描いて動かす</p>
+</header>
+
+<nav aria-label="Sections">
+  <ul>
+    <li><a href="#confidentialite">プライバシー</a></li>
+    <li><a href="#oeuvres">あなたの作品</a></li>
+    <li><a href="#conditions">利用規約</a></li>
+    <li><a href="#mentions">法的表示</a></li>
+    <li><a href="#assistance">サポート</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section id="confidentialite">
+    <h2>プライバシーポリシー</h2>
+    <p class="date">更新日：2026年10月26日</p>
+
+    <div class="points">
+      <div class="point"><b>データを収集しません</b><span>アカウントなし、広告なし、アクセス解析なし、トラッカーなし。Inkomaはどのサーバーにも接続しません。</span></div>
+      <div class="point"><b>すべてこのデバイスに残ります</b><span>作品、スケッチブック、ブラシはiPadに保存され、あなたが共有しない限りiPadの外には出ません。</span></div>
+      <div class="point"><b>アクセス許可</b><span>それぞれ、機能が必要とするときに求められます。拒否することも、あとで「設定」で取り消すこともできます。</span></div>
+    </div>
+
+    <h3>概要</h3>
+    <p>Inkomaは個人データを一切収集しません。アカウントはなく、広告・アクセス解析・トラッカーも含まず、どのサーバーにも接続しません。描いたものはあなたのデバイスに残ります。</p>
+
+    <h3>デバイスに保存されるもの</h3>
+    <ul class="plain">
+      <li>作品：レイヤー、アニメーションのコマ、サイズ、名前、サムネール、そして作品に配置した写真・ビデオ・音。</li>
+      <li>スケッチブック：名前、表紙、ページの順序、手書きで書き込んだもの。</li>
+      <li>ブラシとアプリの設定。</li>
+      <li>問題の原因を調べるための、作品を開いた記録と保存した記録（技術ログ）。デバイスの外には出ません。</li>
+    </ul>
+    <p>これらのファイルはアプリ専用の領域（「ファイル」で表示可能）に保存されます。iOSの設定に従い、Appleが管理するデバイスのバックアップ（iCloudまたはコンピュータ）に含まれます。発行者がこれらにアクセスすることは一切ありません。</p>
+
+    <h3>アクセス許可</h3>
+    <p>Inkomaは、機能が必要とするときにアクセス許可を求めます。拒否することも、いつでも「設定」で取り消すこともできます。</p>
+    <ul class="plain">
+      <li>カメラ：ストップモーション用に写真を撮り、その上に描きます。</li>
+      <li>マイク：声や効果音など、アニメーションに付ける音を録音します。</li>
+      <li>写真：選んだ写真やビデオを読み込み、書き出した画像、GIF、ビデオを写真に保存します。Inkomaが読み込むのはあなたが選んだものだけです。</li>
+      <li>ファイル：許可は不要です。Inkomaはあなたが選んだファイルだけを開きます。</li>
+    </ul>
+    <p>こうして撮影・読み込みしたものはデバイス上の、配置した作品の中に残り、何も送信されません。Inkomaは位置情報を使いません。スタイラスの傾き・向き・筆圧は、得られる場合に線を描くためだけに使われます。</p>
+
+    <h3>共有</h3>
+    <p>画像、GIF、動画は、あなた自身が共有したとき（iOSの共有シート）に、選んだ送り先へのみアプリの外に出ます。Inkomaが自ら何かを送信することはありません。</p>
+
+    <h3>子ども</h3>
+    <p>Inkomaは子どものデータを含め、データを一切収集しません。アカウントなしで、教室でもどこでも使えます。</p>
+
+    <h3>あなたの権利</h3>
+    <p>データを一切収集しないため、発行者はあなたに関する情報を何も持っていません。作品の管理はあなた次第です。ホーム画面から削除すると、作品は「最近削除した項目」に30日間残ったあとで消去されます。アプリを削除すればすべてが消去されます。</p>
+
+    <h3>連絡先</h3>
+    <p>このポリシーに関するお問い合わせは、<a href="#assistance">サポートページ</a>から発行者までご連絡ください。</p>
+
+    <h3>変更</h3>
+    <p>このポリシーが変更された場合、新しい版を日付とともにAppとこのページで公開します。</p>
+
+    <h3>このページについて</h3>
+    <p>このページはGitHub Pagesでホストされています。Cookieを設定せず、外部リソースも読み込みません。GitHubは、自社のプライバシーポリシーに従って接続の技術的なログを保持する場合があります。</p>
+  </section>
+
+  <section id="oeuvres">
+    <h2>あなたの作品</h2>
+    <h3>「ファイル」で</h3>
+    <p>作品は「ファイル」の「このiPad内」› Inkoma › Oeuvres にあります。</p>
+    <h3>バックアップ</h3>
+    <p>iOSの設定に従い、デバイスのバックアップ（iCloudまたはコンピュータ）に含まれます。</p>
+    <h3>消去</h3>
+    <p>削除した作品は「最近削除した項目」に30日間残り、そこから復元できます。アプリを削除するとすべての作品が消去されます。</p>
+    <h3>作品はあなたのものです</h3>
+    <p>Inkomaで描いたもの、動かしたものはあなたのものです。アプリはあなたの画像に一切の権利を主張しません。</p>
+  </section>
+
+  <section id="conditions">
+    <h2>利用規約</h2>
+    <p>InkomaはApp Storeを通じて、<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">ライセンス対象アプリケーションに関するAppleの標準使用許諾契約</a>に基づいて配信されます。App独自の規約はありません。</p>
+  </section>
+
+  <section id="mentions">
+    <h2>法的表示</h2>
+    <dl class="facts">
+      <dt>アプリ</dt><dd>Inkoma（iPad用）</dd>
+      <dt>発行者</dt><dd>Jérôme Houix</dd>
+      <dt>発行責任者</dt><dd>Jérôme Houix</dd>
+      <dt>連絡先</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">サポートページ</a></dd>
+      <dt>アプリのホスティング</dt><dd>なし：Inkomaはサーバーを使わず、すべてデバイス上で動作します。アプリはAppleのApp Storeで配信されています。</dd>
+      <dt>このページのホスティング</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, アメリカ合衆国</dd>
+      <dt>知的財産</dt><dd>アプリ、その名称およびアイコンは発行者に帰属します。Inkomaで制作された作品はその作者に帰属します。</dd>
+    </dl>
+    <p>Inkomaはサードパーティのライブラリを一切使用していません。</p>
+  </section>
+
+  <section id="assistance">
+    <h2>サポート</h2>
+    <p>ご質問、問題、プライバシーに関するご依頼は、<a href="https://github.com/jeromehouix/inkoma-site/issues">サポートページ</a>で報告を作成してください。すべてのご依頼に回答します。</p>
+    <p>報告は公開されます。個人情報は含めないでください。</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>© 2026 Jérôme Houix — Inkoma</p>
+  <p class="langs" aria-label="言語"><a href="../" lang="fr">Français</a> · <a href="../en/" lang="en">English</a> · <a href="../es/" lang="es">Español</a> · <a href="../de/" lang="de">Deutsch</a> · <a href="../it/" lang="it">Italiano</a> · <a href="../pt-BR/" lang="pt-BR">Português (Brasil)</a> · <a href="../nl/" lang="nl">Nederlands</a> · <a href="../ja/" lang="ja" aria-current="page">日本語</a> · <a href="../zh-Hans/" lang="zh-Hans">简体中文</a> · <a href="../ko/" lang="ko">한국어</a></p>
+</footer>
+
+</body>
+</html>
