@@ -43,10 +43,68 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 20px}
   a{color:var(--accent); text-underline-offset:2px}
 
-  header{padding:64px 0 40px; text-align:center}
-  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
-  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
-  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+  img{max-width:100%}
+  /* Les planches sont peintes sur blanc par le moteur : posées en « produit »,
+     le blanc devient le papier de la page. */
+  .ink{mix-blend-mode:multiply}
+  .wide{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* La présentation (docs/publication.md § 10, piste B) : le titre sur un lavis,
+     un trait d'encre de bord à bord, puis les quatre modes en grandes planches. */
+  .hero{position:relative; overflow:hidden; padding:56px 0 38px}
+  .hero .wash{position:absolute; right:-4%; top:-14px; width:min(74%,880px); opacity:.95; pointer-events:none}
+  .hero .wide{position:relative}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(4.2rem,13vw,10rem); line-height:.88;
+    letter-spacing:-.03em; margin:0}
+  .hero .stroke{position:relative; display:block; width:100%; max-width:1500px; margin:-2.2vw auto -4vw}
+  .hero .tag{font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.9rem); margin:6px 0 14px; max-width:28ch; text-wrap:balance}
+  .hero .intro{max-width:54ch; margin:0 0 22px; font-size:1.06rem}
+  .pills{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .pills .free{font-weight:600; font-size:.92rem; padding:6px 14px; border-radius:999px; background:var(--ink); color:var(--paper)}
+  .soon{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); border-radius:999px; padding:5px 14px;
+    font-weight:600; font-size:.92rem}
+  .soon::before{content:""; width:8px; height:8px; border-radius:50%; background:#B8802B}
+
+  #inkoma{border-bottom:0; padding-top:30px}
+  .eyebrow{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:0;
+    display:flex; align-items:center; gap:14px}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
+  .mode{display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,4vw,56px); align-items:center; padding:40px 0;
+    border-bottom:1px solid var(--line)}
+  .mode:nth-of-type(even) figure{order:2}
+  .mode > *,.books > *{min-width:0}
+  .mode figure{margin:0; display:flex; justify-content:center; align-items:center; min-height:240px}
+  .mode figure > img{width:100%; max-width:560px; height:auto}
+  .mode .head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .mode .head img{width:46px; height:46px}
+  .mode h3{font-family:var(--serif); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:0; font-weight:600}
+  .mode p{margin:0 0 10px; max-width:46ch}
+  .mode .detail{font-size:.88rem; color:var(--ink-soft)}
+  .swatches{display:grid; gap:2px; width:100%}
+  .swatches div{display:grid; grid-template-columns:minmax(0,1fr) 132px; align-items:center}
+  .swatches small{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+  .swatches img{height:62px; width:100%; object-fit:cover}
+  .ball{position:relative; width:240px; height:240px}
+  .ball span{position:absolute; inset:0; background:url(../img/balle.jpg) 0 0/2880px 240px no-repeat;
+    mix-blend-mode:multiply; animation:play 1s steps(12) infinite}
+  .ball span.g1{opacity:.28; animation-delay:.0833s}
+  .ball span.g2{opacity:.13; animation-delay:.1667s}
+  @keyframes play{to{background-position:-2880px 0}}
+  @media (prefers-reduced-motion:reduce){ .ball span{animation:none; background-position:-1440px 0} .ball span.g1,.ball span.g2{display:none} }
+  .books{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,380px); gap:30px; align-items:center; margin-top:34px;
+    padding:34px clamp(20px,4vw,48px); background:var(--paper-deep); border-radius:18px}
+  .books h3{font-family:var(--serif); font-size:2rem; margin:0 0 8px; font-weight:600}
+  .books p{max-width:48ch; margin:0}
+  .facts6{display:grid; grid-template-columns:repeat(3,1fr); margin-top:34px; border-top:1.5px solid var(--ink)}
+  .facts6 div{padding:16px 16px 16px 0; border-bottom:1px solid var(--line)}
+  .facts6 b{display:block; font-family:var(--serif); font-size:1.45rem; font-weight:600}
+  .facts6 span{font-size:.88rem; color:var(--ink-soft)}
+  @media (max-width:720px){
+    .mode{grid-template-columns:1fr} .mode:nth-of-type(even) figure{order:0}
+    .books{grid-template-columns:minmax(0,1fr)} .facts6{grid-template-columns:1fr 1fr}
+    .swatches div{grid-template-columns:minmax(0,1fr) 104px}
+    .hero .wash{width:120%; right:-35%}
+  }
 
   nav{
     position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
@@ -71,8 +129,6 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
-  .points.four{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -103,10 +159,15 @@
 </head>
 <body>
 
-<header class="wrap">
-  <img src="../inkoma.png" alt="">
-  <h1>Inkoma</h1>
-  <p>在 iPad 上绘画与动画</p>
+<header class="hero">
+  <img class="wash ink" src="../img/lavis.jpg" alt="">
+  <div class="wide"><h1>Inkoma</h1></div>
+  <img class="stroke ink" src="../img/encre.jpg" alt="">
+  <div class="wide">
+    <p class="tag">在 iPad 上绘画与动画</p>
+    <p class="intro">Inkoma是一款用于iPad的绘画与动画工作室。同一张画纸可以绘画、做动画，也可以分格讲故事；画纸收在速写本中。</p>
+    <div class="pills"><span class="free">免费</span><span class="soon">即将登陆App Store</span></div>
+  </div>
 </header>
 
 <nav aria-label="Sections">
@@ -120,27 +181,62 @@
   </ul>
 </nav>
 
-<main class="wrap">
+<main>
 
-  <section id="inkoma">
-    <h2>简介</h2>
-    <p>Inkoma是一款用于iPad的绘画与动画工作室。同一张画纸可以绘画、做动画，也可以分格讲故事；画纸收在速写本中。</p>
-    <div class="points four">
-      <div class="point"><b>绘画</b><span>190多种按画材分类的画笔，水彩在其中晕开并干燥的水图层，带混合模式和蒙版的16位图层，以及调整画笔的工作室。</span></div>
-      <div class="point"><b>动画</b><span>使用洋葱皮逐帧绘制，沿路径运动，在骨架上做木偶动画，或用iPad的相机拍摄定格动画。</span></div>
-      <div class="point"><b>讲故事</b><span>漫画模式：页面、分格、对话气泡、拟声词和网点；你的手写字可以变成字体。</span></div>
-      <div class="point"><b>整理与展示</b><span>可变成PDF书的速写本，全屏播放，导出为视频、PNG、PSD和SVG。</span></div>
+  <section id="inkoma" class="wide">
+    <h2 class="eyebrow">四种模式，同一张画纸</h2>
+    <div class="mode">
+      <figure><div class="swatches">
+          <div><img class="ink" src="../img/bande-crayon.jpg" alt=""><small>6B铅笔</small></div>
+          <div><img class="ink" src="../img/bande-fusain.jpg" alt=""><small>压缩炭笔</small></div>
+          <div><img class="ink" src="../img/bande-pastel.jpg" alt=""><small>软粉彩</small></div>
+          <div><img class="ink" src="../img/bande-aquarelle.jpg" alt=""><small>圆头水彩</small></div>
+          <div><img class="ink" src="../img/bande-sumi.jpg" alt=""><small>水墨笔</small></div>
+          <div><img class="ink" src="../img/bande-pastel-gras.jpg" alt=""><small>油画棒</small></div>
+      </div></figure>
+      <div>
+        <div class="head"><img src="../img/logo.png" alt=""><h3>绘画</h3></div>
+        <p>190多种按画材分类的画笔，每一种都能在画笔工作室中调整。水彩在纸纹上晕开并干燥的水图层。带混合模式和蒙版的16位图层。</p>
+        <p class="detail">每种画笔都会响应触控笔的倾斜，有无压感均可。</p>
+      </div>
     </div>
-    <dl class="facts">
-      <dt>价格</dt><dd>免费，无App内购买，无广告</dd>
-      <dt>设备</dt><dd>运行iPadOS 26的iPad；建议：iPad（第10代）或更新机型</dd>
-      <dt>触控笔</dt><dd>Apple Pencil或其他触控笔，有无压感均可；手指也能绘画</dd>
-      <dt>语言</dt><dd>简体中文、法语、英语、西班牙语、德语、意大利语、葡萄牙语、荷兰语、日语、韩语</dd>
-      <dt>隐私</dt><dd>不收集任何数据</dd>
-      <dt>上架情况</dt><dd>即将登陆App Store</dd>
-    </dl>
+    <div class="mode">
+      <figure><div class="ball" role="img" aria-label="一个弹跳的球，12帧，带洋葱皮"><span class="g2"></span><span class="g1"></span><span></span></div></figure>
+      <div>
+        <div class="head"><img src="../img/logo-animation.png" alt=""><h3>动画</h3></div>
+        <p>从第二帧起，画面就动起来了：使用洋葱皮逐帧绘制，沿路径运动，在骨架上做木偶动画，或用iPad的相机拍摄定格动画。</p>
+        <p class="detail">这里是12帧、每秒12帧，前两帧以洋葱皮显示；可导出为视频。</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/bd.jpg" alt="三格漫画页，一个对话气泡，速度线"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-bd.png" alt=""><h3>漫画</h3></div>
+        <p>能留住笔触的页面和分格、对话气泡、拟声词、网点；画册导出为PDF。你的手写字会变成对话气泡使用的字体。</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/vectoriel.jpg" alt="带锚点和控制柄的曲线，一颗星，一个圆"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-vectoriel.png" alt=""><h3>矢量</h3></div>
+        <p>任意缩放都清晰的墨线，可组合的形状，带控制柄的钢笔；导出为SVG和PDF。</p>
+      </div>
+    </div>
+    <div class="books">
+      <div><h3>一切都收进速写本</h3><p>一页接一页，配上封面，放上书架；速写本可以变成PDF书，动画可以导出为视频。</p></div>
+      <img class="ink" src="../img/carnet.jpg" alt="一本打开的速写本">
+    </div>
+    <div class="facts6">
+      <div><b>免费</b><span>无App内购买，无广告</span></div>
+      <div><b>iPad</b><span>iPadOS 26；建议：iPad（第10代）或更新机型</span></div>
+      <div><b>任何触控笔</b><span>有无压感均可；手指也能绘画</span></div>
+      <div><b>十种语言</b><span>简体中文、法语、英语、西班牙语、德语、意大利语、葡萄牙语、荷兰语、日语、韩语</span></div>
+      <div><b>不收集数据</b><span>无需账号，没有追踪；作品留在你的iPad上</span></div>
+      <div><b>即将推出</b><span>登陆App Store</span></div>
+    </div>
   </section>
 
+  <div class="wrap">
   <section id="confidentialite">
     <h2>隐私政策</h2>
     <p class="date">更新日期：2026年10月26日</p>
@@ -237,6 +333,7 @@
     <p class="note">表单在GitHub上打开，需要一个免费账号才能留言。</p>
   </section>
 
+  </div>
 </main>
 
 <footer class="wrap">

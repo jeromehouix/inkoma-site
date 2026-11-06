@@ -43,10 +43,68 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 20px}
   a{color:var(--accent); text-underline-offset:2px}
 
-  header{padding:64px 0 40px; text-align:center}
-  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
-  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
-  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+  img{max-width:100%}
+  /* Les planches sont peintes sur blanc par le moteur : posées en « produit »,
+     le blanc devient le papier de la page. */
+  .ink{mix-blend-mode:multiply}
+  .wide{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* La présentation (docs/publication.md § 10, piste B) : le titre sur un lavis,
+     un trait d'encre de bord à bord, puis les quatre modes en grandes planches. */
+  .hero{position:relative; overflow:hidden; padding:56px 0 38px}
+  .hero .wash{position:absolute; right:-4%; top:-14px; width:min(74%,880px); opacity:.95; pointer-events:none}
+  .hero .wide{position:relative}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(4.2rem,13vw,10rem); line-height:.88;
+    letter-spacing:-.03em; margin:0}
+  .hero .stroke{position:relative; display:block; width:100%; max-width:1500px; margin:-2.2vw auto -4vw}
+  .hero .tag{font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.9rem); margin:6px 0 14px; max-width:28ch; text-wrap:balance}
+  .hero .intro{max-width:54ch; margin:0 0 22px; font-size:1.06rem}
+  .pills{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .pills .free{font-weight:600; font-size:.92rem; padding:6px 14px; border-radius:999px; background:var(--ink); color:var(--paper)}
+  .soon{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); border-radius:999px; padding:5px 14px;
+    font-weight:600; font-size:.92rem}
+  .soon::before{content:""; width:8px; height:8px; border-radius:50%; background:#B8802B}
+
+  #inkoma{border-bottom:0; padding-top:30px}
+  .eyebrow{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:0;
+    display:flex; align-items:center; gap:14px}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
+  .mode{display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,4vw,56px); align-items:center; padding:40px 0;
+    border-bottom:1px solid var(--line)}
+  .mode:nth-of-type(even) figure{order:2}
+  .mode > *,.books > *{min-width:0}
+  .mode figure{margin:0; display:flex; justify-content:center; align-items:center; min-height:240px}
+  .mode figure > img{width:100%; max-width:560px; height:auto}
+  .mode .head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .mode .head img{width:46px; height:46px}
+  .mode h3{font-family:var(--serif); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:0; font-weight:600}
+  .mode p{margin:0 0 10px; max-width:46ch}
+  .mode .detail{font-size:.88rem; color:var(--ink-soft)}
+  .swatches{display:grid; gap:2px; width:100%}
+  .swatches div{display:grid; grid-template-columns:minmax(0,1fr) 132px; align-items:center}
+  .swatches small{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+  .swatches img{height:62px; width:100%; object-fit:cover}
+  .ball{position:relative; width:240px; height:240px}
+  .ball span{position:absolute; inset:0; background:url(../img/balle.jpg) 0 0/2880px 240px no-repeat;
+    mix-blend-mode:multiply; animation:play 1s steps(12) infinite}
+  .ball span.g1{opacity:.28; animation-delay:.0833s}
+  .ball span.g2{opacity:.13; animation-delay:.1667s}
+  @keyframes play{to{background-position:-2880px 0}}
+  @media (prefers-reduced-motion:reduce){ .ball span{animation:none; background-position:-1440px 0} .ball span.g1,.ball span.g2{display:none} }
+  .books{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,380px); gap:30px; align-items:center; margin-top:34px;
+    padding:34px clamp(20px,4vw,48px); background:var(--paper-deep); border-radius:18px}
+  .books h3{font-family:var(--serif); font-size:2rem; margin:0 0 8px; font-weight:600}
+  .books p{max-width:48ch; margin:0}
+  .facts6{display:grid; grid-template-columns:repeat(3,1fr); margin-top:34px; border-top:1.5px solid var(--ink)}
+  .facts6 div{padding:16px 16px 16px 0; border-bottom:1px solid var(--line)}
+  .facts6 b{display:block; font-family:var(--serif); font-size:1.45rem; font-weight:600}
+  .facts6 span{font-size:.88rem; color:var(--ink-soft)}
+  @media (max-width:720px){
+    .mode{grid-template-columns:1fr} .mode:nth-of-type(even) figure{order:0}
+    .books{grid-template-columns:minmax(0,1fr)} .facts6{grid-template-columns:1fr 1fr}
+    .swatches div{grid-template-columns:minmax(0,1fr) 104px}
+    .hero .wash{width:120%; right:-35%}
+  }
 
   nav{
     position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
@@ -71,8 +129,6 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
-  .points.four{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -103,10 +159,15 @@
 </head>
 <body>
 
-<header class="wrap">
-  <img src="../inkoma.png" alt="">
-  <h1>Inkoma</h1>
-  <p>Tekenen en animeren, op de iPad</p>
+<header class="hero">
+  <img class="wash ink" src="../img/lavis.jpg" alt="">
+  <div class="wide"><h1>Inkoma</h1></div>
+  <img class="stroke ink" src="../img/encre.jpg" alt="">
+  <div class="wide">
+    <p class="tag">Tekenen en animeren, op de iPad</p>
+    <p class="intro">Inkoma is een atelier om te tekenen en te animeren op de iPad. Op hetzelfde vel teken je, animeer je en vertel je in panelen; de vellen bewaar je in schetsboeken.</p>
+    <div class="pills"><span class="free">Gratis</span><span class="soon">Binnenkort in de App Store</span></div>
+  </div>
 </header>
 
 <nav aria-label="Sections">
@@ -120,27 +181,62 @@
   </ul>
 </nav>
 
-<main class="wrap">
+<main>
 
-  <section id="inkoma">
-    <h2>Over Inkoma</h2>
-    <p>Inkoma is een atelier om te tekenen en te animeren op de iPad. Op hetzelfde vel teken je, animeer je en vertel je in panelen; de vellen bewaar je in schetsboeken.</p>
-    <div class="points four">
-      <div class="point"><b>Tekenen</b><span>Meer dan 190 penselen, geordend per techniek, een waterlaag waarin aquarel uitvloeit en droogt, 16-bits lagen met overvloeimodi en maskers, een atelier om penselen af te stellen.</span></div>
-      <div class="point"><b>Animeren</b><span>Beeld voor beeld met uienschil, langs een pad, als marionet op een skelet, of als stop-motion met de camera van de iPad.</span></div>
-      <div class="point"><b>Vertellen</b><span>Een stripmodus: pagina's, panelen, tekstballonnen, klanknabootsingen en rasters; je handschrift wordt een lettertype.</span></div>
-      <div class="point"><b>Bewaren en tonen</b><span>Schetsboeken die PDF-boeken worden, afspelen op volledig scherm, exporteren als video, PNG, PSD en SVG.</span></div>
+  <section id="inkoma" class="wide">
+    <h2 class="eyebrow">Vier modi, één vel</h2>
+    <div class="mode">
+      <figure><div class="swatches">
+          <div><img class="ink" src="../img/bande-crayon.jpg" alt=""><small>Potlood 6B</small></div>
+          <div><img class="ink" src="../img/bande-fusain.jpg" alt=""><small>Geperste houtskool</small></div>
+          <div><img class="ink" src="../img/bande-pastel.jpg" alt=""><small>Softpastel</small></div>
+          <div><img class="ink" src="../img/bande-aquarelle.jpg" alt=""><small>Ronde aquarel</small></div>
+          <div><img class="ink" src="../img/bande-sumi.jpg" alt=""><small>Sumipenseel</small></div>
+          <div><img class="ink" src="../img/bande-pastel-gras.jpg" alt=""><small>Oliepastel</small></div>
+      </div></figure>
+      <div>
+        <div class="head"><img src="../img/logo.png" alt=""><h3>Tekenen</h3></div>
+        <p>Meer dan 190 penselen, geordend per techniek, elk af te stellen in het penseelatelier. Een waterlaag waarin aquarel uitvloeit en droogt op de korrel van het papier. 16-bits lagen met hun overvloeimodi en maskers.</p>
+        <p class="detail">Elk penseel reageert op de hoek van de stylus, met of zonder druk.</p>
+      </div>
     </div>
-    <dl class="facts">
-      <dt>Prijs</dt><dd>Gratis, zonder in-app-aankopen of advertenties</dd>
-      <dt>Apparaat</dt><dd>iPad met iPadOS 26; aanbevolen: iPad (10e generatie) of nieuwer</dd>
-      <dt>Stylus</dt><dd>Apple Pencil of een andere stylus, met of zonder druk; ook je vinger tekent</dd>
-      <dt>Talen</dt><dd>Nederlands, Frans, Engels, Spaans, Duits, Italiaans, Portugees, Japans, vereenvoudigd Chinees, Koreaans</dd>
-      <dt>Privacy</dt><dd>Geen gegevens verzameld</dd>
-      <dt>Beschikbaarheid</dt><dd>Binnenkort in de App Store</dd>
-    </dl>
+    <div class="mode">
+      <figure><div class="ball" role="img" aria-label="Een stuiterende bal, twaalf beelden, met uienschil"><span class="g2"></span><span class="g1"></span><span></span></div></figure>
+      <div>
+        <div class="head"><img src="../img/logo-animation.png" alt=""><h3>Animatie</h3></div>
+        <p>Vanaf het tweede beeld komt de tekening tot leven: beeld voor beeld met uienschil, langs een pad, als marionet op een skelet, of als stop-motion met de camera van de iPad.</p>
+        <p class="detail">Hier twaalf beelden op 12 b/s, de twee vorige als uienschil; exporteren als video.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/bd.jpg" alt="Een pagina met drie panelen, een tekstballon, snelheidslijnen"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-bd.png" alt=""><h3>Strip</h3></div>
+        <p>Pagina's en panelen die de lijn vasthouden, tekstballonnen, klanknabootsingen, rasters; het album als PDF. Je handschrift wordt een lettertype voor de ballonnen.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/vectoriel.jpg" alt="Een curve met ankerpunten en grepen, een ster, een schijf"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-vectoriel.png" alt=""><h3>Vector</h3></div>
+        <p>Inkt die bij elke zoom scherp blijft, vormen om te combineren, de pen en zijn grepen; exporteren als SVG en PDF.</p>
+      </div>
+    </div>
+    <div class="books">
+      <div><h3>Alles komt in schetsboeken</h3><p>Pagina na pagina, met hun omslag, op een plank; een schetsboek wordt een PDF-boek, een animatie gaat de wereld in als video.</p></div>
+      <img class="ink" src="../img/carnet.jpg" alt="Een open schetsboek">
+    </div>
+    <div class="facts6">
+      <div><b>Gratis</b><span>Zonder in-app-aankopen of advertenties</span></div>
+      <div><b>iPad</b><span>iPadOS 26; aanbevolen: iPad (10e generatie) of nieuwer</span></div>
+      <div><b>Elke stylus</b><span>Met of zonder druk; ook je vinger tekent</span></div>
+      <div><b>Tien talen</b><span>Nederlands, Frans, Engels, Spaans, Duits, Italiaans, Portugees, Japans, vereenvoudigd Chinees, Koreaans</span></div>
+      <div><b>Geen gegevens</b><span>Geen account, geen tracking; je werk blijft op de iPad</span></div>
+      <div><b>Binnenkort</b><span>In de App Store</span></div>
+    </div>
   </section>
 
+  <div class="wrap">
   <section id="confidentialite">
     <h2>Privacybeleid</h2>
     <p class="date">Bijgewerkt: 26 oktober 2026</p>
@@ -237,6 +333,7 @@
     <p class="note">De formulieren openen op GitHub; om te schrijven is een gratis account nodig.</p>
   </section>
 
+  </div>
 </main>
 
 <footer class="wrap">

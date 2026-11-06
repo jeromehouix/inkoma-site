@@ -43,10 +43,68 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 20px}
   a{color:var(--accent); text-underline-offset:2px}
 
-  header{padding:64px 0 40px; text-align:center}
-  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
-  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
-  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+  img{max-width:100%}
+  /* Les planches sont peintes sur blanc par le moteur : posées en « produit »,
+     le blanc devient le papier de la page. */
+  .ink{mix-blend-mode:multiply}
+  .wide{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* La présentation (docs/publication.md § 10, piste B) : le titre sur un lavis,
+     un trait d'encre de bord à bord, puis les quatre modes en grandes planches. */
+  .hero{position:relative; overflow:hidden; padding:56px 0 38px}
+  .hero .wash{position:absolute; right:-4%; top:-14px; width:min(74%,880px); opacity:.95; pointer-events:none}
+  .hero .wide{position:relative}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(4.2rem,13vw,10rem); line-height:.88;
+    letter-spacing:-.03em; margin:0}
+  .hero .stroke{position:relative; display:block; width:100%; max-width:1500px; margin:-2.2vw auto -4vw}
+  .hero .tag{font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.9rem); margin:6px 0 14px; max-width:28ch; text-wrap:balance}
+  .hero .intro{max-width:54ch; margin:0 0 22px; font-size:1.06rem}
+  .pills{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .pills .free{font-weight:600; font-size:.92rem; padding:6px 14px; border-radius:999px; background:var(--ink); color:var(--paper)}
+  .soon{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); border-radius:999px; padding:5px 14px;
+    font-weight:600; font-size:.92rem}
+  .soon::before{content:""; width:8px; height:8px; border-radius:50%; background:#B8802B}
+
+  #inkoma{border-bottom:0; padding-top:30px}
+  .eyebrow{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:0;
+    display:flex; align-items:center; gap:14px}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
+  .mode{display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,4vw,56px); align-items:center; padding:40px 0;
+    border-bottom:1px solid var(--line)}
+  .mode:nth-of-type(even) figure{order:2}
+  .mode > *,.books > *{min-width:0}
+  .mode figure{margin:0; display:flex; justify-content:center; align-items:center; min-height:240px}
+  .mode figure > img{width:100%; max-width:560px; height:auto}
+  .mode .head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .mode .head img{width:46px; height:46px}
+  .mode h3{font-family:var(--serif); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:0; font-weight:600}
+  .mode p{margin:0 0 10px; max-width:46ch}
+  .mode .detail{font-size:.88rem; color:var(--ink-soft)}
+  .swatches{display:grid; gap:2px; width:100%}
+  .swatches div{display:grid; grid-template-columns:minmax(0,1fr) 132px; align-items:center}
+  .swatches small{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+  .swatches img{height:62px; width:100%; object-fit:cover}
+  .ball{position:relative; width:240px; height:240px}
+  .ball span{position:absolute; inset:0; background:url(../img/balle.jpg) 0 0/2880px 240px no-repeat;
+    mix-blend-mode:multiply; animation:play 1s steps(12) infinite}
+  .ball span.g1{opacity:.28; animation-delay:.0833s}
+  .ball span.g2{opacity:.13; animation-delay:.1667s}
+  @keyframes play{to{background-position:-2880px 0}}
+  @media (prefers-reduced-motion:reduce){ .ball span{animation:none; background-position:-1440px 0} .ball span.g1,.ball span.g2{display:none} }
+  .books{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,380px); gap:30px; align-items:center; margin-top:34px;
+    padding:34px clamp(20px,4vw,48px); background:var(--paper-deep); border-radius:18px}
+  .books h3{font-family:var(--serif); font-size:2rem; margin:0 0 8px; font-weight:600}
+  .books p{max-width:48ch; margin:0}
+  .facts6{display:grid; grid-template-columns:repeat(3,1fr); margin-top:34px; border-top:1.5px solid var(--ink)}
+  .facts6 div{padding:16px 16px 16px 0; border-bottom:1px solid var(--line)}
+  .facts6 b{display:block; font-family:var(--serif); font-size:1.45rem; font-weight:600}
+  .facts6 span{font-size:.88rem; color:var(--ink-soft)}
+  @media (max-width:720px){
+    .mode{grid-template-columns:1fr} .mode:nth-of-type(even) figure{order:0}
+    .books{grid-template-columns:minmax(0,1fr)} .facts6{grid-template-columns:1fr 1fr}
+    .swatches div{grid-template-columns:minmax(0,1fr) 104px}
+    .hero .wash{width:120%; right:-35%}
+  }
 
   nav{
     position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
@@ -71,8 +129,6 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
-  .points.four{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -103,10 +159,15 @@
 </head>
 <body>
 
-<header class="wrap">
-  <img src="../inkoma.png" alt="">
-  <h1>Inkoma</h1>
-  <p>iPad에서 그리고 움직이기</p>
+<header class="hero">
+  <img class="wash ink" src="../img/lavis.jpg" alt="">
+  <div class="wide"><h1>Inkoma</h1></div>
+  <img class="stroke ink" src="../img/encre.jpg" alt="">
+  <div class="wide">
+    <p class="tag">iPad에서 그리고 움직이기</p>
+    <p class="intro">Inkoma는 iPad를 위한 그리기와 애니메이션 작업실입니다. 같은 종이에서 그리고, 움직이고, 칸으로 이야기를 만들 수 있으며, 종이들은 스케치북에 모아 둡니다.</p>
+    <div class="pills"><span class="free">무료</span><span class="soon">곧 App Store에 출시</span></div>
+  </div>
 </header>
 
 <nav aria-label="Sections">
@@ -120,27 +181,62 @@
   </ul>
 </nav>
 
-<main class="wrap">
+<main>
 
-  <section id="inkoma">
-    <h2>소개</h2>
-    <p>Inkoma는 iPad를 위한 그리기와 애니메이션 작업실입니다. 같은 종이에서 그리고, 움직이고, 칸으로 이야기를 만들 수 있으며, 종이들은 스케치북에 모아 둡니다.</p>
-    <div class="points four">
-      <div class="point"><b>그리기</b><span>재료별로 정리된 190개 이상의 브러시, 수채가 번지고 마르는 물 레이어, 혼합 모드와 마스크를 갖춘 16비트 레이어, 브러시를 조정하는 작업실.</span></div>
-      <div class="point"><b>움직이기</b><span>어니언 스킨을 켠 프레임 단위 애니메이션, 경로를 따라가는 움직임, 뼈대 위의 인형, iPad 카메라로 찍는 스톱모션.</span></div>
-      <div class="point"><b>이야기하기</b><span>만화 모드: 페이지, 칸, 말풍선, 의성어와 스크린톤. 손글씨가 글꼴이 됩니다.</span></div>
-      <div class="point"><b>모으고 보여 주기</b><span>PDF 책이 되는 스케치북, 전체 화면 재생, 비디오·PNG·PSD·SVG로 내보내기.</span></div>
+  <section id="inkoma" class="wide">
+    <h2 class="eyebrow">네 가지 모드, 한 장의 종이</h2>
+    <div class="mode">
+      <figure><div class="swatches">
+          <div><img class="ink" src="../img/bande-crayon.jpg" alt=""><small>6B 연필</small></div>
+          <div><img class="ink" src="../img/bande-fusain.jpg" alt=""><small>압축 목탄</small></div>
+          <div><img class="ink" src="../img/bande-pastel.jpg" alt=""><small>소프트 파스텔</small></div>
+          <div><img class="ink" src="../img/bande-aquarelle.jpg" alt=""><small>둥근 수채</small></div>
+          <div><img class="ink" src="../img/bande-sumi.jpg" alt=""><small>먹 붓</small></div>
+          <div><img class="ink" src="../img/bande-pastel-gras.jpg" alt=""><small>오일 파스텔</small></div>
+      </div></figure>
+      <div>
+        <div class="head"><img src="../img/logo.png" alt=""><h3>드로잉</h3></div>
+        <p>재료별로 정리된 190개 이상의 브러시, 모두 브러시 작업실에서 조정할 수 있습니다. 수채가 종이 결 위에서 번지고 마르는 물 레이어. 혼합 모드와 마스크를 갖춘 16비트 레이어.</p>
+        <p class="detail">모든 브러시가 스타일러스의 기울기에 반응하며, 필압이 있든 없든 쓸 수 있습니다.</p>
+      </div>
     </div>
-    <dl class="facts">
-      <dt>가격</dt><dd>무료, 앱 내 구입과 광고 없음</dd>
-      <dt>기기</dt><dd>iPadOS 26을 사용하는 iPad. 권장: iPad(10세대) 이상</dd>
-      <dt>스타일러스</dt><dd>Apple Pencil 또는 다른 스타일러스, 필압이 있든 없든 사용 가능. 손가락으로도 그릴 수 있습니다</dd>
-      <dt>언어</dt><dd>한국어, 프랑스어, 영어, 스페인어, 독일어, 이탈리아어, 포르투갈어, 네덜란드어, 일본어, 중국어 간체</dd>
-      <dt>개인정보 보호</dt><dd>데이터를 수집하지 않음</dd>
-      <dt>출시</dt><dd>곧 App Store에 출시</dd>
-    </dl>
+    <div class="mode">
+      <figure><div class="ball" role="img" aria-label="튀어 오르는 공, 12프레임, 어니언 스킨"><span class="g2"></span><span class="g1"></span><span></span></div></figure>
+      <div>
+        <div class="head"><img src="../img/logo-animation.png" alt=""><h3>애니메이션</h3></div>
+        <p>두 번째 프레임부터 그림이 살아 움직입니다. 어니언 스킨을 켠 프레임 단위 애니메이션, 경로를 따라가는 움직임, 뼈대 위의 인형, iPad 카메라로 찍는 스톱모션.</p>
+        <p class="detail">여기서는 12프레임을 초당 12프레임으로, 앞의 두 프레임은 어니언 스킨으로 보여 줍니다. 비디오로 내보낼 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/bd.jpg" alt="세 칸짜리 페이지, 말풍선, 속도선"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-bd.png" alt=""><h3>만화</h3></div>
+        <p>선을 붙잡아 두는 페이지와 칸, 말풍선, 의성어, 스크린톤. 앨범은 PDF로. 손글씨가 말풍선의 글꼴이 됩니다.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/vectoriel.jpg" alt="앵커와 핸들이 있는 곡선, 별, 원"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-vectoriel.png" alt=""><h3>벡터</h3></div>
+        <p>얼마나 확대해도 선명한 잉크, 조합할 수 있는 도형, 핸들이 있는 펜. SVG와 PDF로 내보낼 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="books">
+      <div><h3>모든 것은 스케치북에</h3><p>한 장 한 장, 표지를 씌워 책장에 꽂아 둡니다. 스케치북은 PDF 책이 되고, 애니메이션은 비디오가 됩니다.</p></div>
+      <img class="ink" src="../img/carnet.jpg" alt="펼친 스케치북">
+    </div>
+    <div class="facts6">
+      <div><b>무료</b><span>앱 내 구입과 광고 없음</span></div>
+      <div><b>iPad</b><span>iPadOS 26. 권장: iPad(10세대) 이상</span></div>
+      <div><b>어떤 스타일러스든</b><span>필압이 있든 없든. 손가락으로도 그릴 수 있습니다</span></div>
+      <div><b>10개 언어</b><span>한국어, 프랑스어, 영어, 스페인어, 독일어, 이탈리아어, 포르투갈어, 네덜란드어, 일본어, 중국어 간체</span></div>
+      <div><b>데이터 수집 없음</b><span>계정도 추적도 없음. 작품은 iPad에 남습니다</span></div>
+      <div><b>출시 예정</b><span>App Store에서</span></div>
+    </div>
   </section>
 
+  <div class="wrap">
   <section id="confidentialite">
     <h2>개인정보 처리방침</h2>
     <p class="date">업데이트: 2026년 10월 26일</p>
@@ -237,6 +333,7 @@
     <p class="note">양식은 GitHub에서 열리며, 글을 쓰려면 무료 계정이 필요합니다.</p>
   </section>
 
+  </div>
 </main>
 
 <footer class="wrap">

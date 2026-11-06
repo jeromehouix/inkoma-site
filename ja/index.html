@@ -43,10 +43,68 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 20px}
   a{color:var(--accent); text-underline-offset:2px}
 
-  header{padding:64px 0 40px; text-align:center}
-  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
-  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
-  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+  img{max-width:100%}
+  /* Les planches sont peintes sur blanc par le moteur : posées en « produit »,
+     le blanc devient le papier de la page. */
+  .ink{mix-blend-mode:multiply}
+  .wide{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* La présentation (docs/publication.md § 10, piste B) : le titre sur un lavis,
+     un trait d'encre de bord à bord, puis les quatre modes en grandes planches. */
+  .hero{position:relative; overflow:hidden; padding:56px 0 38px}
+  .hero .wash{position:absolute; right:-4%; top:-14px; width:min(74%,880px); opacity:.95; pointer-events:none}
+  .hero .wide{position:relative}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(4.2rem,13vw,10rem); line-height:.88;
+    letter-spacing:-.03em; margin:0}
+  .hero .stroke{position:relative; display:block; width:100%; max-width:1500px; margin:-2.2vw auto -4vw}
+  .hero .tag{font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.9rem); margin:6px 0 14px; max-width:28ch; text-wrap:balance}
+  .hero .intro{max-width:54ch; margin:0 0 22px; font-size:1.06rem}
+  .pills{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .pills .free{font-weight:600; font-size:.92rem; padding:6px 14px; border-radius:999px; background:var(--ink); color:var(--paper)}
+  .soon{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); border-radius:999px; padding:5px 14px;
+    font-weight:600; font-size:.92rem}
+  .soon::before{content:""; width:8px; height:8px; border-radius:50%; background:#B8802B}
+
+  #inkoma{border-bottom:0; padding-top:30px}
+  .eyebrow{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:0;
+    display:flex; align-items:center; gap:14px}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
+  .mode{display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,4vw,56px); align-items:center; padding:40px 0;
+    border-bottom:1px solid var(--line)}
+  .mode:nth-of-type(even) figure{order:2}
+  .mode > *,.books > *{min-width:0}
+  .mode figure{margin:0; display:flex; justify-content:center; align-items:center; min-height:240px}
+  .mode figure > img{width:100%; max-width:560px; height:auto}
+  .mode .head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .mode .head img{width:46px; height:46px}
+  .mode h3{font-family:var(--serif); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:0; font-weight:600}
+  .mode p{margin:0 0 10px; max-width:46ch}
+  .mode .detail{font-size:.88rem; color:var(--ink-soft)}
+  .swatches{display:grid; gap:2px; width:100%}
+  .swatches div{display:grid; grid-template-columns:minmax(0,1fr) 132px; align-items:center}
+  .swatches small{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+  .swatches img{height:62px; width:100%; object-fit:cover}
+  .ball{position:relative; width:240px; height:240px}
+  .ball span{position:absolute; inset:0; background:url(../img/balle.jpg) 0 0/2880px 240px no-repeat;
+    mix-blend-mode:multiply; animation:play 1s steps(12) infinite}
+  .ball span.g1{opacity:.28; animation-delay:.0833s}
+  .ball span.g2{opacity:.13; animation-delay:.1667s}
+  @keyframes play{to{background-position:-2880px 0}}
+  @media (prefers-reduced-motion:reduce){ .ball span{animation:none; background-position:-1440px 0} .ball span.g1,.ball span.g2{display:none} }
+  .books{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,380px); gap:30px; align-items:center; margin-top:34px;
+    padding:34px clamp(20px,4vw,48px); background:var(--paper-deep); border-radius:18px}
+  .books h3{font-family:var(--serif); font-size:2rem; margin:0 0 8px; font-weight:600}
+  .books p{max-width:48ch; margin:0}
+  .facts6{display:grid; grid-template-columns:repeat(3,1fr); margin-top:34px; border-top:1.5px solid var(--ink)}
+  .facts6 div{padding:16px 16px 16px 0; border-bottom:1px solid var(--line)}
+  .facts6 b{display:block; font-family:var(--serif); font-size:1.45rem; font-weight:600}
+  .facts6 span{font-size:.88rem; color:var(--ink-soft)}
+  @media (max-width:720px){
+    .mode{grid-template-columns:1fr} .mode:nth-of-type(even) figure{order:0}
+    .books{grid-template-columns:minmax(0,1fr)} .facts6{grid-template-columns:1fr 1fr}
+    .swatches div{grid-template-columns:minmax(0,1fr) 104px}
+    .hero .wash{width:120%; right:-35%}
+  }
 
   nav{
     position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
@@ -71,8 +129,6 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
-  .points.four{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -103,10 +159,15 @@
 </head>
 <body>
 
-<header class="wrap">
-  <img src="../inkoma.png" alt="">
-  <h1>Inkoma</h1>
-  <p>iPadで、描いて動かす</p>
+<header class="hero">
+  <img class="wash ink" src="../img/lavis.jpg" alt="">
+  <div class="wide"><h1>Inkoma</h1></div>
+  <img class="stroke ink" src="../img/encre.jpg" alt="">
+  <div class="wide">
+    <p class="tag">iPadで、描いて動かす</p>
+    <p class="intro">InkomaはiPadのための描画とアニメーションのアトリエです。同じシートで描き、動かし、コマで物語を作れます。シートはスケッチブックにまとめられます。</p>
+    <div class="pills"><span class="free">無料</span><span class="soon">App Storeで近日公開</span></div>
+  </div>
 </header>
 
 <nav aria-label="Sections">
@@ -120,27 +181,62 @@
   </ul>
 </nav>
 
-<main class="wrap">
+<main>
 
-  <section id="inkoma">
-    <h2>紹介</h2>
-    <p>InkomaはiPadのための描画とアニメーションのアトリエです。同じシートで描き、動かし、コマで物語を作れます。シートはスケッチブックにまとめられます。</p>
-    <div class="points four">
-      <div class="point"><b>描く</b><span>画材ごとに並んだ190以上のブラシ、水彩がにじみ乾いていく水のレイヤー、描画モードとマスクを備えた16ビットのレイヤー、ブラシを調整するアトリエ。</span></div>
-      <div class="point"><b>動かす</b><span>オニオンスキンを使ったコマ撮り、軌道に沿った動き、骨格をもつパペット、iPadのカメラによるストップモーション。</span></div>
-      <div class="point"><b>物語る</b><span>マンガモード：ページ、コマ、吹き出し、擬音、スクリーントーン。手書きの文字がフォントになります。</span></div>
-      <div class="point"><b>まとめて見せる</b><span>PDFの本になるスケッチブック、フルスクリーン再生、ビデオ・PNG・PSD・SVGへの書き出し。</span></div>
+  <section id="inkoma" class="wide">
+    <h2 class="eyebrow">4つのモード、1枚のシート</h2>
+    <div class="mode">
+      <figure><div class="swatches">
+          <div><img class="ink" src="../img/bande-crayon.jpg" alt=""><small>6B鉛筆</small></div>
+          <div><img class="ink" src="../img/bande-fusain.jpg" alt=""><small>圧縮木炭</small></div>
+          <div><img class="ink" src="../img/bande-pastel.jpg" alt=""><small>ソフトパステル</small></div>
+          <div><img class="ink" src="../img/bande-aquarelle.jpg" alt=""><small>丸筆水彩</small></div>
+          <div><img class="ink" src="../img/bande-sumi.jpg" alt=""><small>墨の筆</small></div>
+          <div><img class="ink" src="../img/bande-pastel-gras.jpg" alt=""><small>オイルパステル</small></div>
+      </div></figure>
+      <div>
+        <div class="head"><img src="../img/logo.png" alt=""><h3>ドローイング</h3></div>
+        <p>画材ごとに並んだ190以上のブラシ。どれもブラシアトリエで調整できます。水彩が紙の目の上でにじみ、乾いていく水のレイヤー。描画モードとマスクを備えた16ビットのレイヤー。</p>
+        <p class="detail">どのブラシもスタイラスの傾きに応え、筆圧の有無を問いません。</p>
+      </div>
     </div>
-    <dl class="facts">
-      <dt>価格</dt><dd>無料。アプリ内課金も広告もありません</dd>
-      <dt>デバイス</dt><dd>iPadOS 26のiPad。推奨：iPad（第10世代）以降</dd>
-      <dt>スタイラス</dt><dd>Apple Pencilまたはほかのスタイラス、筆圧の有無を問いません。指でも描けます</dd>
-      <dt>言語</dt><dd>日本語、フランス語、英語、スペイン語、ドイツ語、イタリア語、ポルトガル語、オランダ語、簡体字中国語、韓国語</dd>
-      <dt>プライバシー</dt><dd>データを収集しません</dd>
-      <dt>提供状況</dt><dd>App Storeで近日公開</dd>
-    </dl>
+    <div class="mode">
+      <figure><div class="ball" role="img" aria-label="弾むボール、12コマ、オニオンスキン付き"><span class="g2"></span><span class="g1"></span><span></span></div></figure>
+      <div>
+        <div class="head"><img src="../img/logo-animation.png" alt=""><h3>アニメーション</h3></div>
+        <p>2コマ目から絵が動き出します。オニオンスキンを使ったコマ撮り、軌道に沿った動き、骨格をもつパペット、iPadのカメラによるストップモーション。</p>
+        <p class="detail">ここでは12コマを12fpsで、直前の2コマをオニオンスキンで表示。ビデオに書き出せます。</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/bd.jpg" alt="3コマのページ、吹き出し、集中線"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-bd.png" alt=""><h3>マンガ</h3></div>
+        <p>線を受け止めるページとコマ、吹き出し、擬音、スクリーントーン。アルバムはPDFに。手書きの文字が吹き出しのフォントになります。</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/vectoriel.jpg" alt="アンカーとハンドルのある曲線、星、円"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-vectoriel.png" alt=""><h3>ベクター</h3></div>
+        <p>どこまで拡大してもくっきりしたインク、組み合わせられる図形、ハンドル付きのペン。SVGとPDFに書き出せます。</p>
+      </div>
+    </div>
+    <div class="books">
+      <div><h3>すべてをスケッチブックに</h3><p>ページを重ね、表紙をつけて棚に並べます。スケッチブックはPDFの本に、アニメーションはビデオになります。</p></div>
+      <img class="ink" src="../img/carnet.jpg" alt="開いたスケッチブック">
+    </div>
+    <div class="facts6">
+      <div><b>無料</b><span>アプリ内課金も広告もありません</span></div>
+      <div><b>iPad</b><span>iPadOS 26。推奨：iPad（第10世代）以降</span></div>
+      <div><b>どのスタイラスでも</b><span>筆圧の有無を問いません。指でも描けます</span></div>
+      <div><b>10の言語</b><span>日本語、フランス語、英語、スペイン語、ドイツ語、イタリア語、ポルトガル語、オランダ語、簡体字中国語、韓国語</span></div>
+      <div><b>データ収集なし</b><span>アカウントも追跡もなし。作品はiPadに残ります</span></div>
+      <div><b>近日公開</b><span>App Storeで</span></div>
+    </div>
   </section>
 
+  <div class="wrap">
   <section id="confidentialite">
     <h2>プライバシーポリシー</h2>
     <p class="date">更新日：2026年10月26日</p>
@@ -237,6 +333,7 @@
     <p class="note">フォームはGitHubで開きます。書き込むには無料のアカウントが必要です。</p>
   </section>
 
+  </div>
 </main>
 
 <footer class="wrap">

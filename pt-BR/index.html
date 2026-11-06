@@ -43,10 +43,68 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 20px}
   a{color:var(--accent); text-underline-offset:2px}
 
-  header{padding:64px 0 40px; text-align:center}
-  header img{width:112px; height:112px; display:block; margin:0 auto 14px; border-radius:25px}
-  header h1{font-family:var(--serif); font-weight:600; font-size:2.6rem; letter-spacing:-.01em; margin:0}
-  header p{margin:4px 0 0; color:var(--ink-soft); font-size:1.08rem}
+  img{max-width:100%}
+  /* Les planches sont peintes sur blanc par le moteur : posées en « produit »,
+     le blanc devient le papier de la page. */
+  .ink{mix-blend-mode:multiply}
+  .wide{max-width:1080px; margin:0 auto; padding:0 20px}
+
+  /* La présentation (docs/publication.md § 10, piste B) : le titre sur un lavis,
+     un trait d'encre de bord à bord, puis les quatre modes en grandes planches. */
+  .hero{position:relative; overflow:hidden; padding:56px 0 38px}
+  .hero .wash{position:absolute; right:-4%; top:-14px; width:min(74%,880px); opacity:.95; pointer-events:none}
+  .hero .wide{position:relative}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(4.2rem,13vw,10rem); line-height:.88;
+    letter-spacing:-.03em; margin:0}
+  .hero .stroke{position:relative; display:block; width:100%; max-width:1500px; margin:-2.2vw auto -4vw}
+  .hero .tag{font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.9rem); margin:6px 0 14px; max-width:28ch; text-wrap:balance}
+  .hero .intro{max-width:54ch; margin:0 0 22px; font-size:1.06rem}
+  .pills{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .pills .free{font-weight:600; font-size:.92rem; padding:6px 14px; border-radius:999px; background:var(--ink); color:var(--paper)}
+  .soon{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); border-radius:999px; padding:5px 14px;
+    font-weight:600; font-size:.92rem}
+  .soon::before{content:""; width:8px; height:8px; border-radius:50%; background:#B8802B}
+
+  #inkoma{border-bottom:0; padding-top:30px}
+  .eyebrow{font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin:0;
+    display:flex; align-items:center; gap:14px}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
+  .mode{display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,4vw,56px); align-items:center; padding:40px 0;
+    border-bottom:1px solid var(--line)}
+  .mode:nth-of-type(even) figure{order:2}
+  .mode > *,.books > *{min-width:0}
+  .mode figure{margin:0; display:flex; justify-content:center; align-items:center; min-height:240px}
+  .mode figure > img{width:100%; max-width:560px; height:auto}
+  .mode .head{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .mode .head img{width:46px; height:46px}
+  .mode h3{font-family:var(--serif); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:0; font-weight:600}
+  .mode p{margin:0 0 10px; max-width:46ch}
+  .mode .detail{font-size:.88rem; color:var(--ink-soft)}
+  .swatches{display:grid; gap:2px; width:100%}
+  .swatches div{display:grid; grid-template-columns:minmax(0,1fr) 132px; align-items:center}
+  .swatches small{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+  .swatches img{height:62px; width:100%; object-fit:cover}
+  .ball{position:relative; width:240px; height:240px}
+  .ball span{position:absolute; inset:0; background:url(../img/balle.jpg) 0 0/2880px 240px no-repeat;
+    mix-blend-mode:multiply; animation:play 1s steps(12) infinite}
+  .ball span.g1{opacity:.28; animation-delay:.0833s}
+  .ball span.g2{opacity:.13; animation-delay:.1667s}
+  @keyframes play{to{background-position:-2880px 0}}
+  @media (prefers-reduced-motion:reduce){ .ball span{animation:none; background-position:-1440px 0} .ball span.g1,.ball span.g2{display:none} }
+  .books{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,380px); gap:30px; align-items:center; margin-top:34px;
+    padding:34px clamp(20px,4vw,48px); background:var(--paper-deep); border-radius:18px}
+  .books h3{font-family:var(--serif); font-size:2rem; margin:0 0 8px; font-weight:600}
+  .books p{max-width:48ch; margin:0}
+  .facts6{display:grid; grid-template-columns:repeat(3,1fr); margin-top:34px; border-top:1.5px solid var(--ink)}
+  .facts6 div{padding:16px 16px 16px 0; border-bottom:1px solid var(--line)}
+  .facts6 b{display:block; font-family:var(--serif); font-size:1.45rem; font-weight:600}
+  .facts6 span{font-size:.88rem; color:var(--ink-soft)}
+  @media (max-width:720px){
+    .mode{grid-template-columns:1fr} .mode:nth-of-type(even) figure{order:0}
+    .books{grid-template-columns:minmax(0,1fr)} .facts6{grid-template-columns:1fr 1fr}
+    .swatches div{grid-template-columns:minmax(0,1fr) 104px}
+    .hero .wash{width:120%; right:-35%}
+  }
 
   nav{
     position:sticky; top:0; z-index:1; background:rgba(242,240,235,.92);
@@ -71,8 +129,6 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
-  .points.four{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -103,10 +159,15 @@
 </head>
 <body>
 
-<header class="wrap">
-  <img src="../inkoma.png" alt="">
-  <h1>Inkoma</h1>
-  <p>Desenhar e animar, no iPad</p>
+<header class="hero">
+  <img class="wash ink" src="../img/lavis.jpg" alt="">
+  <div class="wide"><h1>Inkoma</h1></div>
+  <img class="stroke ink" src="../img/encre.jpg" alt="">
+  <div class="wide">
+    <p class="tag">Desenhar e animar, no iPad</p>
+    <p class="intro">Inkoma é um ateliê de desenho e animação para iPad. A mesma folha serve para desenhar, animar e contar histórias em quadros; as folhas são guardadas em cadernos.</p>
+    <div class="pills"><span class="free">Grátis</span><span class="soon">Em breve na App Store</span></div>
+  </div>
 </header>
 
 <nav aria-label="Sections">
@@ -120,27 +181,62 @@
   </ul>
 </nav>
 
-<main class="wrap">
+<main>
 
-  <section id="inkoma">
-    <h2>Apresentação</h2>
-    <p>Inkoma é um ateliê de desenho e animação para iPad. A mesma folha serve para desenhar, animar e contar histórias em quadros; as folhas são guardadas em cadernos.</p>
-    <div class="points four">
-      <div class="point"><b>Desenhar</b><span>Mais de 190 pincéis organizados por técnica, uma camada de água onde a aquarela se espalha e seca, camadas de 16 bits com seus modos e máscaras, um ateliê para ajustar os pincéis.</span></div>
-      <div class="point"><b>Animar</b><span>Quadro a quadro com papel cebola, ao longo de uma trajetória, como marionete sobre um esqueleto, ou em stop motion com a câmera do iPad.</span></div>
-      <div class="point"><b>Contar</b><span>Um modo HQ: páginas, quadros, balões, onomatopeias e retículas; sua letra vira uma fonte.</span></div>
-      <div class="point"><b>Guardar e mostrar</b><span>Cadernos que viram livros em PDF, reprodução em tela cheia, exportação em vídeo, PNG, PSD e SVG.</span></div>
+  <section id="inkoma" class="wide">
+    <h2 class="eyebrow">Quatro modos, uma mesma folha</h2>
+    <div class="mode">
+      <figure><div class="swatches">
+          <div><img class="ink" src="../img/bande-crayon.jpg" alt=""><small>Lápis 6B</small></div>
+          <div><img class="ink" src="../img/bande-fusain.jpg" alt=""><small>Carvão prensado</small></div>
+          <div><img class="ink" src="../img/bande-pastel.jpg" alt=""><small>Pastel seco</small></div>
+          <div><img class="ink" src="../img/bande-aquarelle.jpg" alt=""><small>Aquarela redonda</small></div>
+          <div><img class="ink" src="../img/bande-sumi.jpg" alt=""><small>Pincel sumi</small></div>
+          <div><img class="ink" src="../img/bande-pastel-gras.jpg" alt=""><small>Pastel oleoso</small></div>
+      </div></figure>
+      <div>
+        <div class="head"><img src="../img/logo.png" alt=""><h3>Desenho</h3></div>
+        <p>Mais de 190 pincéis organizados por técnica, cada um ajustável no ateliê de pincéis. Uma camada de água onde a aquarela se espalha e seca sobre a textura do papel. Camadas de 16 bits, com seus modos e suas máscaras.</p>
+        <p class="detail">Cada pincel responde à inclinação da caneta, com ou sem pressão.</p>
+      </div>
     </div>
-    <dl class="facts">
-      <dt>Preço</dt><dd>Grátis, sem compras no app nem anúncios</dd>
-      <dt>Aparelho</dt><dd>iPad com iPadOS 26; recomendado: iPad (10ª geração) ou mais recente</dd>
-      <dt>Caneta</dt><dd>Apple Pencil ou outra caneta, com ou sem pressão; o dedo também desenha</dd>
-      <dt>Idiomas</dt><dd>português, francês, inglês, espanhol, alemão, italiano, holandês, japonês, chinês simplificado, coreano</dd>
-      <dt>Privacidade</dt><dd>Nenhum dado coletado</dd>
-      <dt>Disponibilidade</dt><dd>Em breve na App Store</dd>
-    </dl>
+    <div class="mode">
+      <figure><div class="ball" role="img" aria-label="Uma bola quicando, doze quadros, com papel cebola"><span class="g2"></span><span class="g1"></span><span></span></div></figure>
+      <div>
+        <div class="head"><img src="../img/logo-animation.png" alt=""><h3>Animação</h3></div>
+        <p>A partir do segundo quadro, o desenho ganha vida: quadro a quadro com papel cebola, ao longo de uma trajetória, como marionete sobre um esqueleto, ou em stop motion com a câmera do iPad.</p>
+        <p class="detail">Aqui, doze quadros a 12 q/s, os dois anteriores em papel cebola; exportação em vídeo.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/bd.jpg" alt="Uma página de três quadros, um balão, linhas de velocidade"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-bd.png" alt=""><h3>Quadrinhos</h3></div>
+        <p>Páginas e quadros que retêm o traço, balões, onomatopeias, retículas; o álbum em PDF. Sua letra vira uma fonte, usada pelos balões.</p>
+      </div>
+    </div>
+    <div class="mode">
+      <figure><img class="ink" src="../img/vectoriel.jpg" alt="Uma curva com seus pontos de ancoragem e alças, uma estrela, um disco"></figure>
+      <div>
+        <div class="head"><img src="../img/logo-vectoriel.png" alt=""><h3>Vetorial</h3></div>
+        <p>Uma tinta nítida em qualquer zoom, formas para combinar, a caneta e suas alças; exportação em SVG e PDF.</p>
+      </div>
+    </div>
+    <div class="books">
+      <div><h3>Tudo é guardado em cadernos</h3><p>Página após página, com a capa, numa estante; um caderno vira um livro em PDF, uma animação sai em vídeo.</p></div>
+      <img class="ink" src="../img/carnet.jpg" alt="Um caderno aberto">
+    </div>
+    <div class="facts6">
+      <div><b>Grátis</b><span>Sem compras no app nem anúncios</span></div>
+      <div><b>iPad</b><span>iPadOS 26; recomendado: iPad (10ª geração) ou mais recente</span></div>
+      <div><b>Qualquer caneta</b><span>Com ou sem pressão; o dedo também desenha</span></div>
+      <div><b>Dez idiomas</b><span>português, francês, inglês, espanhol, alemão, italiano, holandês, japonês, chinês simplificado, coreano</span></div>
+      <div><b>Nenhum dado</b><span>Sem conta, sem rastreamento; suas obras ficam no iPad</span></div>
+      <div><b>Em breve</b><span>Na App Store</span></div>
+    </div>
   </section>
 
+  <div class="wrap">
   <section id="confidentialite">
     <h2>Política de privacidade</h2>
     <p class="date">Atualização: 26 de outubro de 2026</p>
@@ -237,6 +333,7 @@
     <p class="note">Os formulários abrem no GitHub, onde é preciso uma conta gratuita para escrever.</p>
   </section>
 
+  </div>
 </main>
 
 <footer class="wrap">
