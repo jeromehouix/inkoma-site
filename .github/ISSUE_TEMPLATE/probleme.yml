@@ -1,0 +1,47 @@
+name: Problème / Problem
+description: Quelque chose ne marche pas. Something doesn't work.
+title: "[Problème / Problem] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Écrivez dans votre langue. Les messages sont **publics** : n'y mettez aucune information personnelle. Une capture d'écran aide beaucoup ; n'y laissez rien de privé.
+        Write in your own language. Messages are **public**: do not include any personal information. A screenshot helps a lot; leave nothing private in it.
+  - type: textarea
+    id: what
+    attributes:
+      label: Ce qui se passe / What happens
+      description: Et ce que vous attendiez. And what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pour le refaire / Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: input
+    id: version
+    attributes:
+      label: Version d'Inkoma (À propos) / Inkoma version (About)
+      placeholder: "1.3 (3)"
+    validations:
+      required: true
+  - type: input
+    id: ipad
+    attributes:
+      label: iPad et version d'iPadOS / iPad and iPadOS version
+      placeholder: "iPad (10e génération), iPadOS 26.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: stylus
+    attributes:
+      label: Pour dessiner / Drawing with
+      options:
+        - Apple Pencil
+        - Autre stylet / Other stylus
+        - Doigt / Finger

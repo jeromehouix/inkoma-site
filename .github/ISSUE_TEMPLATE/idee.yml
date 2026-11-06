@@ -1,0 +1,17 @@
+name: Idée / Idea
+description: Une idée pour Inkoma. An idea for Inkoma.
+title: "[Idée / Idea] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Écrivez dans votre langue. Les messages sont **publics**.
+        Write in your own language. Messages are **public**.
+  - type: textarea
+    id: idea
+    attributes:
+      label: Votre idée / Your idea
+      description: Ce que vous voudriez faire, et comment vous le faites aujourd'hui. What you would like to do, and how you do it today.
+    validations:
+      required: true

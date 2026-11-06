@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">About</a></li>
     <li><a href="#confidentialite">Privacy</a></li>
     <li><a href="#oeuvres">Your artworks</a></li>
     <li><a href="#conditions">Terms of use</a></li>
     <li><a href="#mentions">Legal notice</a></li>
-    <li><a href="#assistance">Support</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>About</h2>
+    <p>Inkoma is a drawing and animation studio for iPad. The same sheet lets you draw, animate and tell stories in panels; your sheets are kept in sketchbooks.</p>
+    <div class="points four">
+      <div class="point"><b>Draw</b><span>Over 190 brushes arranged by medium, a water layer where watercolor spreads and dries, 16-bit layers with blend modes and masks, a studio to tune your brushes.</span></div>
+      <div class="point"><b>Animate</b><span>Frame by frame with onion skin, along a path, as a puppet on a skeleton, or in stop motion with the iPad's camera.</span></div>
+      <div class="point"><b>Tell stories</b><span>A comic mode: pages, panels, speech balloons, sound effects and screentones; your handwriting becomes a font.</span></div>
+      <div class="point"><b>Keep and show</b><span>Sketchbooks that become PDF books, full-screen playback, export to video, PNG, PSD and SVG.</span></div>
+    </div>
+    <dl class="facts">
+      <dt>Price</dt><dd>Free, with no in-app purchases or ads</dd>
+      <dt>Device</dt><dd>iPad with iPadOS 26; recommended: iPad (10th generation) or later</dd>
+      <dt>Stylus</dt><dd>Apple Pencil or another stylus, with or without pressure; your finger draws too</dd>
+      <dt>Languages</dt><dd>English, French, Spanish, German, Italian, Portuguese, Dutch, Japanese, Simplified Chinese, Korean</dd>
+      <dt>Privacy</dt><dd>No data collected</dd>
+      <dt>Availability</dt><dd>Coming soon to the App Store</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>Privacy policy</h2>
@@ -151,7 +183,7 @@
     <p>Since no data is collected, the publisher holds nothing about you. You stay in control of your artworks: delete them from the Home screen (they spend 30 days in Recently Deleted, then are erased), or all of them by deleting the app.</p>
 
     <h3>Contact</h3>
-    <p>For any question about this policy, write to the publisher from the <a href="#assistance">support page</a>.</p>
+    <p>For any question about this policy, write to the publisher from the <a href="#contact">support page</a>.</p>
 
     <h3>Changes</h3>
     <p>If this policy changes, the new version will be published in the app and on this page, with its date.</p>
@@ -183,7 +215,7 @@
       <dt>App</dt><dd>Inkoma, for iPad</dd>
       <dt>Publisher</dt><dd>Jérôme Houix</dd>
       <dt>Publication director</dt><dd>Jérôme Houix</dd>
-      <dt>Contact</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">Support page</a></dd>
+      <dt>Contact</dt><dd><a href="#contact">Support page</a></dd>
       <dt>App hosting</dt><dd>None: Inkoma runs entirely on the device, without a server. The app is distributed by Apple's App Store.</dd>
       <dt>Hosting of this page</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States</dd>
       <dt>Intellectual property</dt><dd>The app, its name and its icon belong to the publisher. Artworks made with Inkoma belong to their authors.</dd>
@@ -191,10 +223,18 @@
     <p>Inkoma includes no third-party library.</p>
   </section>
 
-  <section id="assistance">
-    <h2>Support</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>Contact</h2>
     <p>A question, a problem, a privacy request: open an issue on <a href="https://github.com/jeromehouix/inkoma-site/issues">the support page</a>. Every request gets an answer.</p>
     <p>Issues there are public: do not include personal information.</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">Ask a question</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">Report a problem</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">Suggest an idea</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">A privacy request</a></li>
+    </ul>
+    <p class="note">The forms open on GitHub, where a free account is needed to write.</p>
   </section>
 
 </main>

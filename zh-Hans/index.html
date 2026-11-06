@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">简介</a></li>
     <li><a href="#confidentialite">隐私</a></li>
     <li><a href="#oeuvres">你的作品</a></li>
     <li><a href="#conditions">使用条款</a></li>
     <li><a href="#mentions">法律声明</a></li>
-    <li><a href="#assistance">支持</a></li>
+    <li><a href="#contact">联系方式</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>简介</h2>
+    <p>Inkoma是一款用于iPad的绘画与动画工作室。同一张画纸可以绘画、做动画，也可以分格讲故事；画纸收在速写本中。</p>
+    <div class="points four">
+      <div class="point"><b>绘画</b><span>190多种按画材分类的画笔，水彩在其中晕开并干燥的水图层，带混合模式和蒙版的16位图层，以及调整画笔的工作室。</span></div>
+      <div class="point"><b>动画</b><span>使用洋葱皮逐帧绘制，沿路径运动，在骨架上做木偶动画，或用iPad的相机拍摄定格动画。</span></div>
+      <div class="point"><b>讲故事</b><span>漫画模式：页面、分格、对话气泡、拟声词和网点；你的手写字可以变成字体。</span></div>
+      <div class="point"><b>整理与展示</b><span>可变成PDF书的速写本，全屏播放，导出为视频、PNG、PSD和SVG。</span></div>
+    </div>
+    <dl class="facts">
+      <dt>价格</dt><dd>免费，无App内购买，无广告</dd>
+      <dt>设备</dt><dd>运行iPadOS 26的iPad；建议：iPad（第10代）或更新机型</dd>
+      <dt>触控笔</dt><dd>Apple Pencil或其他触控笔，有无压感均可；手指也能绘画</dd>
+      <dt>语言</dt><dd>简体中文、法语、英语、西班牙语、德语、意大利语、葡萄牙语、荷兰语、日语、韩语</dd>
+      <dt>隐私</dt><dd>不收集任何数据</dd>
+      <dt>上架情况</dt><dd>即将登陆App Store</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>隐私政策</h2>
@@ -151,7 +183,7 @@
     <p>由于不收集任何数据，发行者不持有任何关于你的信息。你的作品由你掌控：在主页删除作品（它们会在“最近删除”中保留 30 天，然后被清除），或删除应用以删除全部作品。</p>
 
     <h3>联系方式</h3>
-    <p>如对本政策有任何疑问，请通过<a href="#assistance">支持页面</a>联系发行者。</p>
+    <p>如对本政策有任何疑问，请通过<a href="#contact">支持页面</a>联系发行者。</p>
 
     <h3>变更</h3>
     <p>如本政策有变，新版本将连同日期在 App 内和本页发布。</p>
@@ -183,7 +215,7 @@
       <dt>应用</dt><dd>Inkoma，适用于 iPad</dd>
       <dt>发行者</dt><dd>Jérôme Houix</dd>
       <dt>出版负责人</dt><dd>Jérôme Houix</dd>
-      <dt>联系方式</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">支持页面</a></dd>
+      <dt>联系方式</dt><dd><a href="#contact">支持页面</a></dd>
       <dt>应用托管</dt><dd>无：Inkoma 完全在设备上运行，不使用服务器。本应用通过 Apple 的 App Store 分发。</dd>
       <dt>本页托管</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, 美国</dd>
       <dt>知识产权</dt><dd>本应用及其名称和图标归发行者所有。用 Inkoma 创作的作品归其作者所有。</dd>
@@ -191,10 +223,18 @@
     <p>Inkoma 未集成任何第三方库。</p>
   </section>
 
-  <section id="assistance">
-    <h2>支持</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>联系方式</h2>
     <p>有疑问、遇到问题或有隐私方面的请求：请在<a href="https://github.com/jeromehouix/inkoma-site/issues">支持页面</a>提交报告。每个请求都会得到答复。</p>
     <p>报告是公开的：请勿包含个人信息。</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">提问</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">报告问题</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">提出建议</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">隐私相关请求</a></li>
+    </ul>
+    <p class="note">表单在GitHub上打开，需要一个免费账号才能留言。</p>
   </section>
 
 </main>

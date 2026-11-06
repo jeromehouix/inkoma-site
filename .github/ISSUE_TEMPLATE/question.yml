@@ -1,0 +1,21 @@
+name: Question
+description: Une question sur Inkoma. A question about Inkoma.
+title: "[Question] "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Écrivez dans votre langue. Les messages sont **publics** : n'y mettez aucune information personnelle.
+        Write in your own language. Messages are **public**: do not include any personal information.
+  - type: textarea
+    id: question
+    attributes:
+      label: Votre question / Your question
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version d'Inkoma (À propos) / Inkoma version (About)
+      placeholder: "1.3 (3)"

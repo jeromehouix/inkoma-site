@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">紹介</a></li>
     <li><a href="#confidentialite">プライバシー</a></li>
     <li><a href="#oeuvres">あなたの作品</a></li>
     <li><a href="#conditions">利用規約</a></li>
     <li><a href="#mentions">法的表示</a></li>
-    <li><a href="#assistance">サポート</a></li>
+    <li><a href="#contact">連絡先</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>紹介</h2>
+    <p>InkomaはiPadのための描画とアニメーションのアトリエです。同じシートで描き、動かし、コマで物語を作れます。シートはスケッチブックにまとめられます。</p>
+    <div class="points four">
+      <div class="point"><b>描く</b><span>画材ごとに並んだ190以上のブラシ、水彩がにじみ乾いていく水のレイヤー、描画モードとマスクを備えた16ビットのレイヤー、ブラシを調整するアトリエ。</span></div>
+      <div class="point"><b>動かす</b><span>オニオンスキンを使ったコマ撮り、軌道に沿った動き、骨格をもつパペット、iPadのカメラによるストップモーション。</span></div>
+      <div class="point"><b>物語る</b><span>マンガモード：ページ、コマ、吹き出し、擬音、スクリーントーン。手書きの文字がフォントになります。</span></div>
+      <div class="point"><b>まとめて見せる</b><span>PDFの本になるスケッチブック、フルスクリーン再生、ビデオ・PNG・PSD・SVGへの書き出し。</span></div>
+    </div>
+    <dl class="facts">
+      <dt>価格</dt><dd>無料。アプリ内課金も広告もありません</dd>
+      <dt>デバイス</dt><dd>iPadOS 26のiPad。推奨：iPad（第10世代）以降</dd>
+      <dt>スタイラス</dt><dd>Apple Pencilまたはほかのスタイラス、筆圧の有無を問いません。指でも描けます</dd>
+      <dt>言語</dt><dd>日本語、フランス語、英語、スペイン語、ドイツ語、イタリア語、ポルトガル語、オランダ語、簡体字中国語、韓国語</dd>
+      <dt>プライバシー</dt><dd>データを収集しません</dd>
+      <dt>提供状況</dt><dd>App Storeで近日公開</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>プライバシーポリシー</h2>
@@ -151,7 +183,7 @@
     <p>データを一切収集しないため、発行者はあなたに関する情報を何も持っていません。作品の管理はあなた次第です。ホーム画面から削除すると、作品は「最近削除した項目」に30日間残ったあとで消去されます。アプリを削除すればすべてが消去されます。</p>
 
     <h3>連絡先</h3>
-    <p>このポリシーに関するお問い合わせは、<a href="#assistance">サポートページ</a>から発行者までご連絡ください。</p>
+    <p>このポリシーに関するお問い合わせは、<a href="#contact">サポートページ</a>から発行者までご連絡ください。</p>
 
     <h3>変更</h3>
     <p>このポリシーが変更された場合、新しい版を日付とともにAppとこのページで公開します。</p>
@@ -183,7 +215,7 @@
       <dt>アプリ</dt><dd>Inkoma（iPad用）</dd>
       <dt>発行者</dt><dd>Jérôme Houix</dd>
       <dt>発行責任者</dt><dd>Jérôme Houix</dd>
-      <dt>連絡先</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">サポートページ</a></dd>
+      <dt>連絡先</dt><dd><a href="#contact">サポートページ</a></dd>
       <dt>アプリのホスティング</dt><dd>なし：Inkomaはサーバーを使わず、すべてデバイス上で動作します。アプリはAppleのApp Storeで配信されています。</dd>
       <dt>このページのホスティング</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, アメリカ合衆国</dd>
       <dt>知的財産</dt><dd>アプリ、その名称およびアイコンは発行者に帰属します。Inkomaで制作された作品はその作者に帰属します。</dd>
@@ -191,10 +223,18 @@
     <p>Inkomaはサードパーティのライブラリを一切使用していません。</p>
   </section>
 
-  <section id="assistance">
-    <h2>サポート</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>連絡先</h2>
     <p>ご質問、問題、プライバシーに関するご依頼は、<a href="https://github.com/jeromehouix/inkoma-site/issues">サポートページ</a>で報告を作成してください。すべてのご依頼に回答します。</p>
     <p>報告は公開されます。個人情報は含めないでください。</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">質問する</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">問題を報告する</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">アイデアを提案する</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">プライバシーに関する依頼</a></li>
+    </ul>
+    <p class="note">フォームはGitHubで開きます。書き込むには無料のアカウントが必要です。</p>
   </section>
 
 </main>

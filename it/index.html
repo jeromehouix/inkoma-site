@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">Presentazione</a></li>
     <li><a href="#confidentialite">Privacy</a></li>
     <li><a href="#oeuvres">Le tue opere</a></li>
     <li><a href="#conditions">Condizioni d'uso</a></li>
     <li><a href="#mentions">Note legali</a></li>
-    <li><a href="#assistance">Assistenza</a></li>
+    <li><a href="#contact">Contatto</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>Presentazione</h2>
+    <p>Inkoma è un atelier di disegno e animazione per iPad. Lo stesso foglio serve per disegnare, animare e raccontare a vignette; i fogli si raccolgono in quaderni.</p>
+    <div class="points four">
+      <div class="point"><b>Disegnare</b><span>Oltre 190 pennelli ordinati per tecnica, un livello d'acqua dove l'acquerello si diffonde e asciuga, livelli a 16 bit con metodi di fusione e maschere, un atelier per regolare i pennelli.</span></div>
+      <div class="point"><b>Animare</b><span>Fotogramma per fotogramma con la carta velina, lungo una traiettoria, come marionetta su uno scheletro, o in stop motion con la fotocamera dell'iPad.</span></div>
+      <div class="point"><b>Raccontare</b><span>Una modalità fumetto: tavole, vignette, nuvolette, onomatopee e retini; la tua scrittura diventa un font.</span></div>
+      <div class="point"><b>Raccogliere e mostrare</b><span>Quaderni che diventano libri PDF, riproduzione a schermo intero, esportazione in video, PNG, PSD e SVG.</span></div>
+    </div>
+    <dl class="facts">
+      <dt>Prezzo</dt><dd>Gratis, senza acquisti in-app né pubblicità</dd>
+      <dt>Dispositivo</dt><dd>iPad con iPadOS 26; consigliato: iPad (10ª generazione) o successivo</dd>
+      <dt>Penna</dt><dd>Apple Pencil o un'altra penna, con o senza pressione; disegna anche il dito</dd>
+      <dt>Lingue</dt><dd>italiano, francese, inglese, spagnolo, tedesco, portoghese, olandese, giapponese, cinese semplificato, coreano</dd>
+      <dt>Privacy</dt><dd>Nessun dato raccolto</dd>
+      <dt>Disponibilità</dt><dd>Presto sull'App Store</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>Informativa sulla privacy</h2>
@@ -151,7 +183,7 @@
     <p>Poiché non viene raccolto alcun dato, l'editore non possiede nulla che ti riguardi. Mantieni il controllo sulle tue opere: eliminale dalla schermata Home (restano 30 giorni in Eliminati di recente, poi vengono cancellate), o tutte eliminando l'app.</p>
 
     <h3>Contatto</h3>
-    <p>Per qualsiasi domanda su questa informativa, scrivi all'editore dalla <a href="#assistance">pagina di assistenza</a>.</p>
+    <p>Per qualsiasi domanda su questa informativa, scrivi all'editore dalla <a href="#contact">pagina di assistenza</a>.</p>
 
     <h3>Modifiche</h3>
     <p>Se questa informativa cambia, la nuova versione sarà pubblicata nell'app e su questa pagina, con la sua data.</p>
@@ -183,7 +215,7 @@
       <dt>Applicazione</dt><dd>Inkoma, per iPad</dd>
       <dt>Editore</dt><dd>Jérôme Houix</dd>
       <dt>Direttore della pubblicazione</dt><dd>Jérôme Houix</dd>
-      <dt>Contatto</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">Pagina di assistenza</a></dd>
+      <dt>Contatto</dt><dd><a href="#contact">Pagina di assistenza</a></dd>
       <dt>Hosting dell'app</dt><dd>Nessuno: Inkoma funziona interamente sul dispositivo, senza server. L'app è distribuita dall'App Store di Apple.</dd>
       <dt>Hosting di questa pagina</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Stati Uniti</dd>
       <dt>Proprietà intellettuale</dt><dd>L'app, il suo nome e la sua icona appartengono all'editore. Le opere realizzate con Inkoma appartengono ai loro autori.</dd>
@@ -191,10 +223,18 @@
     <p>Inkoma non include alcuna libreria di terze parti.</p>
   </section>
 
-  <section id="assistance">
-    <h2>Assistenza</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>Contatto</h2>
     <p>Una domanda, un problema, una richiesta sulla privacy: apri una segnalazione nella <a href="https://github.com/jeromehouix/inkoma-site/issues">pagina di assistenza</a>. Ogni richiesta riceve risposta.</p>
     <p>Le segnalazioni sono pubbliche: non includere informazioni personali.</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">Fare una domanda</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">Segnalare un problema</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">Proporre un'idea</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">Una richiesta sulla privacy</a></li>
+    </ul>
+    <p class="note">I moduli si aprono su GitHub, dove serve un account gratuito per scrivere.</p>
   </section>
 
 </main>

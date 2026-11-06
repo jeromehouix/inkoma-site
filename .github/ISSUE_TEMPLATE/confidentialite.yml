@@ -1,0 +1,19 @@
+name: Confidentialité / Privacy
+description: Une question ou une demande sur la confidentialité. A privacy question or request.
+title: "[Confidentialité / Privacy] "
+labels: [privacy]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Inkoma ne collecte aucune donnée : l'éditeur ne détient rien vous concernant ([politique de confidentialité](https://jeromehouix.github.io/inkoma-site/#confidentialite)).
+        Inkoma collects no data: the publisher holds nothing about you ([privacy policy](https://jeromehouix.github.io/inkoma-site/en/#confidentialite)).
+
+        Les messages sont **publics** : n'y mettez aucune information personnelle.
+        Messages are **public**: do not include any personal information.
+  - type: textarea
+    id: request
+    attributes:
+      label: Votre question ou demande / Your question or request
+    validations:
+      required: true

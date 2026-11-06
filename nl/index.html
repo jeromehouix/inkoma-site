@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">Over Inkoma</a></li>
     <li><a href="#confidentialite">Privacy</a></li>
     <li><a href="#oeuvres">Je werken</a></li>
     <li><a href="#conditions">Gebruiksvoorwaarden</a></li>
     <li><a href="#mentions">Colofon</a></li>
-    <li><a href="#assistance">Ondersteuning</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>Over Inkoma</h2>
+    <p>Inkoma is een atelier om te tekenen en te animeren op de iPad. Op hetzelfde vel teken je, animeer je en vertel je in panelen; de vellen bewaar je in schetsboeken.</p>
+    <div class="points four">
+      <div class="point"><b>Tekenen</b><span>Meer dan 190 penselen, geordend per techniek, een waterlaag waarin aquarel uitvloeit en droogt, 16-bits lagen met overvloeimodi en maskers, een atelier om penselen af te stellen.</span></div>
+      <div class="point"><b>Animeren</b><span>Beeld voor beeld met uienschil, langs een pad, als marionet op een skelet, of als stop-motion met de camera van de iPad.</span></div>
+      <div class="point"><b>Vertellen</b><span>Een stripmodus: pagina's, panelen, tekstballonnen, klanknabootsingen en rasters; je handschrift wordt een lettertype.</span></div>
+      <div class="point"><b>Bewaren en tonen</b><span>Schetsboeken die PDF-boeken worden, afspelen op volledig scherm, exporteren als video, PNG, PSD en SVG.</span></div>
+    </div>
+    <dl class="facts">
+      <dt>Prijs</dt><dd>Gratis, zonder in-app-aankopen of advertenties</dd>
+      <dt>Apparaat</dt><dd>iPad met iPadOS 26; aanbevolen: iPad (10e generatie) of nieuwer</dd>
+      <dt>Stylus</dt><dd>Apple Pencil of een andere stylus, met of zonder druk; ook je vinger tekent</dd>
+      <dt>Talen</dt><dd>Nederlands, Frans, Engels, Spaans, Duits, Italiaans, Portugees, Japans, vereenvoudigd Chinees, Koreaans</dd>
+      <dt>Privacy</dt><dd>Geen gegevens verzameld</dd>
+      <dt>Beschikbaarheid</dt><dd>Binnenkort in de App Store</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>Privacybeleid</h2>
@@ -151,7 +183,7 @@
     <p>Omdat er geen gegevens worden verzameld, heeft de uitgever niets over jou. Je houdt je werken in eigen hand: verwijder ze op het beginscherm (ze blijven 30 dagen in Recent verwijderd en worden dan gewist), of alle door de app te verwijderen.</p>
 
     <h3>Contact</h3>
-    <p>Voor vragen over dit beleid, schrijf de uitgever via de <a href="#assistance">ondersteuningspagina</a>.</p>
+    <p>Voor vragen over dit beleid, schrijf de uitgever via de <a href="#contact">ondersteuningspagina</a>.</p>
 
     <h3>Wijzigingen</h3>
     <p>Als dit beleid verandert, wordt de nieuwe versie met datum in de app en op deze pagina gepubliceerd.</p>
@@ -183,7 +215,7 @@
       <dt>App</dt><dd>Inkoma, voor iPad</dd>
       <dt>Uitgever</dt><dd>Jérôme Houix</dd>
       <dt>Verantwoordelijke uitgever</dt><dd>Jérôme Houix</dd>
-      <dt>Contact</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">Ondersteuningspagina</a></dd>
+      <dt>Contact</dt><dd><a href="#contact">Ondersteuningspagina</a></dd>
       <dt>Hosting van de app</dt><dd>Geen: Inkoma werkt volledig op het apparaat, zonder server. De app wordt verspreid via de App Store van Apple.</dd>
       <dt>Hosting van deze pagina</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Verenigde Staten</dd>
       <dt>Intellectueel eigendom</dt><dd>De app, de naam en het pictogram zijn eigendom van de uitgever. De werken die met Inkoma zijn gemaakt, zijn eigendom van hun makers.</dd>
@@ -191,10 +223,18 @@
     <p>Inkoma bevat geen bibliotheek van derden.</p>
   </section>
 
-  <section id="assistance">
-    <h2>Ondersteuning</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>Contact</h2>
     <p>Een vraag, een probleem, een verzoek over privacy: open een melding op de <a href="https://github.com/jeromehouix/inkoma-site/issues">ondersteuningspagina</a>. Elk verzoek krijgt antwoord.</p>
     <p>Meldingen zijn daar openbaar: voeg geen persoonlijke informatie toe.</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">Een vraag stellen</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">Een probleem melden</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">Een idee voorstellen</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">Een verzoek over privacy</a></li>
+    </ul>
+    <p class="note">De formulieren openen op GitHub; om te schrijven is een gratis account nodig.</p>
   </section>
 
 </main>

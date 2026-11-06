@@ -1,0 +1,6 @@
+# Les formulaires de contact d'Inkoma (docs/publication.md § 9, dépôt de l'app).
+blank_issues_enabled: false
+contact_links:
+  - name: Inkoma — présentation, confidentialité, mentions légales / about, privacy, legal
+    url: https://jeromehouix.github.io/inkoma-site/
+    about: Le site d'Inkoma, en dix langues. The Inkoma website, in ten languages.

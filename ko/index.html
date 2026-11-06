@@ -71,6 +71,8 @@
   .points{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0 24px}
   .point{background:var(--wash); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
   .point b{display:block; margin-bottom:4px}
+  .points.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:560px){ .points.four{grid-template-columns:1fr} }
   .point span{color:var(--ink-soft); font-size:.93rem}
 
   dl.facts{margin:6px 0 18px; display:grid; grid-template-columns:200px 1fr; border-top:1px solid var(--line)}
@@ -81,6 +83,16 @@
     dl.facts dt{border-bottom:0; padding-bottom:0}
     dl.facts dd{padding-top:2px}
   }
+
+  a.store{display:inline-block; background:var(--ink); color:var(--paper); text-decoration:none;
+    border-radius:10px; padding:6px 14px; font-weight:600}
+  ul.forms{list-style:none; margin:4px 0 18px; padding:0; display:grid;
+    grid-template-columns:repeat(2,1fr); gap:10px}
+  @media (max-width:560px){ ul.forms{grid-template-columns:1fr} }
+  ul.forms a{display:block; background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; text-decoration:none; font-weight:600}
+  ul.forms a:hover{background:var(--paper-deep)}
+  .note{color:var(--ink-soft); font-size:.9rem}
 
   footer{padding:36px 0 56px; color:var(--ink-soft); font-size:.88rem; text-align:center}
   footer p{margin:0 0 4px; color:var(--ink-soft)}
@@ -99,15 +111,35 @@
 
 <nav aria-label="Sections">
   <ul>
+    <li><a href="#inkoma">소개</a></li>
     <li><a href="#confidentialite">개인정보 보호</a></li>
     <li><a href="#oeuvres">나의 작품</a></li>
     <li><a href="#conditions">이용 약관</a></li>
     <li><a href="#mentions">법적 고지</a></li>
-    <li><a href="#assistance">지원</a></li>
+    <li><a href="#contact">연락처</a></li>
   </ul>
 </nav>
 
 <main class="wrap">
+
+  <section id="inkoma">
+    <h2>소개</h2>
+    <p>Inkoma는 iPad를 위한 그리기와 애니메이션 작업실입니다. 같은 종이에서 그리고, 움직이고, 칸으로 이야기를 만들 수 있으며, 종이들은 스케치북에 모아 둡니다.</p>
+    <div class="points four">
+      <div class="point"><b>그리기</b><span>재료별로 정리된 190개 이상의 브러시, 수채가 번지고 마르는 물 레이어, 혼합 모드와 마스크를 갖춘 16비트 레이어, 브러시를 조정하는 작업실.</span></div>
+      <div class="point"><b>움직이기</b><span>어니언 스킨을 켠 프레임 단위 애니메이션, 경로를 따라가는 움직임, 뼈대 위의 인형, iPad 카메라로 찍는 스톱모션.</span></div>
+      <div class="point"><b>이야기하기</b><span>만화 모드: 페이지, 칸, 말풍선, 의성어와 스크린톤. 손글씨가 글꼴이 됩니다.</span></div>
+      <div class="point"><b>모으고 보여 주기</b><span>PDF 책이 되는 스케치북, 전체 화면 재생, 비디오·PNG·PSD·SVG로 내보내기.</span></div>
+    </div>
+    <dl class="facts">
+      <dt>가격</dt><dd>무료, 앱 내 구입과 광고 없음</dd>
+      <dt>기기</dt><dd>iPadOS 26을 사용하는 iPad. 권장: iPad(10세대) 이상</dd>
+      <dt>스타일러스</dt><dd>Apple Pencil 또는 다른 스타일러스, 필압이 있든 없든 사용 가능. 손가락으로도 그릴 수 있습니다</dd>
+      <dt>언어</dt><dd>한국어, 프랑스어, 영어, 스페인어, 독일어, 이탈리아어, 포르투갈어, 네덜란드어, 일본어, 중국어 간체</dd>
+      <dt>개인정보 보호</dt><dd>데이터를 수집하지 않음</dd>
+      <dt>출시</dt><dd>곧 App Store에 출시</dd>
+    </dl>
+  </section>
 
   <section id="confidentialite">
     <h2>개인정보 처리방침</h2>
@@ -151,7 +183,7 @@
     <p>어떤 데이터도 수집하지 않으므로 발행자는 사용자에 관한 정보를 전혀 갖고 있지 않습니다. 작품은 사용자가 관리합니다. 홈 화면에서 삭제하면 '최근 삭제된 항목'에 30일 동안 남았다가 지워지며, 앱을 삭제하면 모두 지워집니다.</p>
 
     <h3>연락처</h3>
-    <p>이 방침에 관한 문의는 <a href="#assistance">지원 페이지</a>에서 발행자에게 보내 주세요.</p>
+    <p>이 방침에 관한 문의는 <a href="#contact">지원 페이지</a>에서 발행자에게 보내 주세요.</p>
 
     <h3>변경 사항</h3>
     <p>이 정책이 변경되면 새 버전을 날짜와 함께 앱과 이 페이지에 게시합니다.</p>
@@ -183,7 +215,7 @@
       <dt>앱</dt><dd>Inkoma, iPad용</dd>
       <dt>발행자</dt><dd>Jérôme Houix</dd>
       <dt>발행 책임자</dt><dd>Jérôme Houix</dd>
-      <dt>연락처</dt><dd><a href="https://github.com/jeromehouix/inkoma-site/issues">지원 페이지</a></dd>
+      <dt>연락처</dt><dd><a href="#contact">지원 페이지</a></dd>
       <dt>앱 호스팅</dt><dd>없음: Inkoma는 서버 없이 기기에서만 작동합니다. 앱은 Apple의 App Store를 통해 배포됩니다.</dd>
       <dt>이 페이지의 호스팅</dt><dd>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, 미국</dd>
       <dt>지적 재산권</dt><dd>앱과 그 이름, 아이콘은 발행자에게 속합니다. Inkoma로 만든 작품은 그 작가에게 속합니다.</dd>
@@ -191,10 +223,18 @@
     <p>Inkoma는 타사 라이브러리를 사용하지 않습니다.</p>
   </section>
 
-  <section id="assistance">
-    <h2>지원</h2>
+  <section id="contact">
+    <span id="assistance"></span>
+    <h2>연락처</h2>
     <p>질문, 문제, 개인정보 관련 요청이 있으면 <a href="https://github.com/jeromehouix/inkoma-site/issues">지원 페이지</a>에 문의를 남겨 주십시오. 모든 요청에 답변합니다.</p>
     <p>문의는 공개됩니다. 개인정보를 포함하지 마십시오.</p>
+    <ul class="forms">
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=question.yml">질문하기</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=probleme.yml">문제 신고하기</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=idee.yml">아이디어 제안하기</a></li>
+      <li><a href="https://github.com/jeromehouix/inkoma-site/issues/new?template=confidentialite.yml">개인정보 관련 요청</a></li>
+    </ul>
+    <p class="note">양식은 GitHub에서 열리며, 글을 쓰려면 무료 계정이 필요합니다.</p>
   </section>
 
 </main>
